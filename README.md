@@ -38,12 +38,18 @@ npm run start -- -p 8766
 - `diqtovoice-next-home-mobile-v2.png`
 - `diqtovoice-next-beta-desktop-v2.png`
 
-## Production notes
+## Production status
 
-Before public launch:
+Published via GitHub Pages with OVH DNS:
+
+- `https://diqtovoice.com/` — live
+- `https://www.diqtovoice.com/` — redirects/serves the same GitHub Pages site
+- EN/FR static routes are exported and listed in `sitemap.xml`
+- GitHub Pages HTTPS is enforced with an approved certificate
+
+Remaining before serious paid traffic:
 
 1. Connect beta intake to a real backend or form provider.
 2. Add analytics, ideally privacy-friendly first.
 3. Add final privacy/security text once the Mac app data flow is locked.
-4. Connect `diqtovoice.com` DNS to Vercel or chosen host.
-5. Re-run `npm audit`; current prototype shows only moderate dependency advisories from Next/PostCSS with no safe automatic fix offered by npm.
+4. Re-run `npm audit`; current prototype shows only moderate dependency advisories from Next/PostCSS with no safe automatic fix offered by npm.
