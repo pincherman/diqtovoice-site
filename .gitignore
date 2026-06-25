@@ -1,0 +1,11 @@
+node_modules
+.next
+out
+.vercel
+*.log
+.env
+.env.local
+.DS_Store
+# local design artifacts / verification screenshots
+diqtovoice-*.png
+diqtovoice-landing-v1.html
