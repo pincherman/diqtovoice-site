@@ -8,7 +8,10 @@ Production-oriented Next.js prototype for `diqtovoice.com`.
 - Mac beta first.
 - Diqto Voice for Conversations later.
 - The site must feel premium, guided, self-serve, and ROI-obvious.
+- Pricing copy should use **Diqto Voice Hours**: included live translated voice capacity, explicit overage, no unlimited promise at launch.
 - Do not expose internal automation/agentic operations in the copy.
+
+See [`docs/WEBSITE_PRICING_GUIDANCE.md`](docs/WEBSITE_PRICING_GUIDANCE.md) for pricing, RevenueCat/checkout, and copy guardrails.
 
 ## Routes
 
