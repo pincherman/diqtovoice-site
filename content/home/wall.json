@@ -1,0 +1,149 @@
+{
+  "source": {
+    "author": "Claude",
+    "decision": "Philippe — mur mélangé, 01/11/2026 soir",
+    "scope": "Seul delta admis à la maquette source-tarifs-20261101T1911Z.html ; même mur multilingue pour toutes les pages."
+  },
+  "languages": [
+    "fr",
+    "en",
+    "es",
+    "pt",
+    "de",
+    "it",
+    "ja",
+    "zh",
+    "ko",
+    "ru",
+    "hi",
+    "id",
+    "vi"
+  ],
+  "PARDON": [
+    "Pardon ?",
+    "Sorry?",
+    "¿Perdón?",
+    "Como?",
+    "Wie bitte?",
+    "Come, scusi?",
+    "何ですか？",
+    "你说什么？",
+    "뭐라고요?",
+    "Простите?",
+    "क्या कहा?",
+    "Maaf, apa?",
+    "Xin lỗi, gì cơ?"
+  ],
+  "COMPRENDS": [
+    "Je ne comprends pas",
+    "I don't understand",
+    "No entiendo",
+    "Não entendo",
+    "Ich verstehe nicht",
+    "Non capisco",
+    "わかりません",
+    "我听不懂",
+    "못 알아듣겠어요",
+    "Я не понимаю",
+    "मुझे समझ नहीं आया",
+    "Saya tidak mengerti",
+    "Tôi không hiểu"
+  ],
+  "REPETER": [
+    "Vous pouvez répéter ?",
+    "Could you repeat that?",
+    "¿Puede repetir?",
+    "Pode repetir?",
+    "Noch einmal, bitte?",
+    "Può ripetere?",
+    "もう一度お願いします",
+    "请再说一遍",
+    "다시 말씀해 주세요",
+    "Повторите, пожалуйста",
+    "फिर से कहिए?",
+    "Bisa diulang?",
+    "Nói lại được không?"
+  ],
+  "LENTEMENT": [
+    "Plus lentement…",
+    "Slower, please",
+    "Más despacio",
+    "Mais devagar",
+    "Langsamer, bitte",
+    "Più piano",
+    "ゆっくりお願いします",
+    "请说慢一点",
+    "천천히 말씀해 주세요",
+    "Помедленнее",
+    "धीरे बोलिए",
+    "Pelan-pelan",
+    "Nói chậm thôi"
+  ],
+  "reviews": {
+    "fr": {
+      "reviewer": null,
+      "status": "EN_ATTENTE_RELECTEUR_DISTINCT",
+      "scope": "Les quatre phrases ; naturel à l’oral et longueur courte."
+    },
+    "en": {
+      "reviewer": null,
+      "status": "EN_ATTENTE_RELECTEUR_DISTINCT",
+      "scope": "Les quatre phrases ; naturel à l’oral et longueur courte."
+    },
+    "es": {
+      "reviewer": null,
+      "status": "EN_ATTENTE_RELECTEUR_DISTINCT",
+      "scope": "Les quatre phrases ; naturel à l’oral et longueur courte."
+    },
+    "pt": {
+      "reviewer": null,
+      "status": "EN_ATTENTE_RELECTEUR_DISTINCT",
+      "scope": "Les quatre phrases ; naturel à l’oral et longueur courte."
+    },
+    "de": {
+      "reviewer": null,
+      "status": "EN_ATTENTE_RELECTEUR_DISTINCT",
+      "scope": "Les quatre phrases ; naturel à l’oral et longueur courte."
+    },
+    "it": {
+      "reviewer": null,
+      "status": "EN_ATTENTE_RELECTEUR_DISTINCT",
+      "scope": "Les quatre phrases ; naturel à l’oral et longueur courte."
+    },
+    "ja": {
+      "reviewer": null,
+      "status": "EN_ATTENTE_RELECTEUR_DISTINCT",
+      "scope": "Les quatre phrases ; naturel à l’oral et longueur courte."
+    },
+    "zh": {
+      "reviewer": null,
+      "status": "EN_ATTENTE_RELECTEUR_DISTINCT",
+      "scope": "Les quatre phrases ; naturel à l’oral et longueur courte."
+    },
+    "ko": {
+      "reviewer": null,
+      "status": "EN_ATTENTE_RELECTEUR_DISTINCT",
+      "scope": "Les quatre phrases ; naturel à l’oral et longueur courte."
+    },
+    "ru": {
+      "reviewer": null,
+      "status": "EN_ATTENTE_RELECTEUR_DISTINCT",
+      "scope": "Les quatre phrases ; naturel à l’oral et longueur courte."
+    },
+    "hi": {
+      "reviewer": null,
+      "status": "EN_ATTENTE_RELECTEUR_DISTINCT",
+      "scope": "Les quatre phrases ; naturel à l’oral et longueur courte."
+    },
+    "id": {
+      "reviewer": null,
+      "status": "EN_ATTENTE_RELECTEUR_DISTINCT",
+      "scope": "Les quatre phrases ; naturel à l’oral et longueur courte."
+    },
+    "vi": {
+      "reviewer": null,
+      "status": "EN_ATTENTE_RELECTEUR_DISTINCT",
+      "scope": "Les quatre phrases ; naturel à l’oral et longueur courte."
+    }
+  }
+}

@@ -1,0 +1,145 @@
+<a class="skip-link" href="#haut">{{t001}}</a>
+<header class="site-head">
+  <div class="wrap head">
+    <a class="brand" href="#haut" aria-label="{{t002}}"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 10v4M9.3 7.5v9M12.6 9v6M15.9 6.5v11M19 10.5v3"/></svg></i>{{t003}}</a>
+    <nav class="nav" aria-label="{{t004}}">
+      <a href="#tarifs">{{t005}}</a>
+      <a href="#entreprises">{{t006}}</a>
+      <a href="#questions">{{t007}}</a>
+    </nav>
+    <details class="lang">
+      <summary aria-label="{{t008}}"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 3.8 5.6 3.8 9s-1.2 6.4-3.8 9c-2.6-2.6-3.8-5.6-3.8-9S9.4 5.6 12 3z"/></svg>{{t009}}</summary>
+      <ul class="lang-list" data-langs="header">{{LANGUAGES}}</ul>
+    </details>
+    <button type="button" class="icon-btn" id="pause" aria-pressed="false" aria-label="{{t010}}" title="{{t011}}">
+      <svg class="bars" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12" rx="1"/><rect x="9.5" y="2" width="3.5" height="12" rx="1"/></svg>
+      <svg class="play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg>
+    </button>
+    <button type="button" class="btn" disabled aria-describedby="download-msg">{{t012}}</button>
+    <button type="button" class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="menu">{{t013}}</button>
+  </div>
+  <div class="wrap menu" id="menu" hidden>
+    <nav aria-label="{{t014}}">
+      <a href="#tarifs">{{t015}}</a>
+      <a href="#entreprises">{{t016}}</a>
+      <a href="#questions">{{t017}}</a>
+    </nav>
+    <p>{{t018}}</p>
+    <ul class="menu-langs" data-langs="menu">{{LANGUAGES}}</ul>
+    <button type="button" class="btn big" disabled aria-describedby="download-msg">{{t019}}</button>
+  </div>
+</header>
+
+<main id="haut">
+  <section class="hero" data-scene="wall" aria-labelledby="hook">
+    <canvas aria-hidden="true"></canvas>
+    <div class="wrap">
+      <h1 class="hook" id="hook" data-veil>{{t020}}<em>{{t021}}</em>{{t022}}</h1>
+      <div class="hero-cta" data-veil>
+        <button type="button" class="btn big" disabled aria-describedby="download-msg">{{t023}}</button>
+        <a class="link" href="#tarifs">{{t024}}</a>
+        <p class="hero-note">{{t025}}</p>
+        <p class="hero-note" id="download-msg">{{t076}}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec world" aria-labelledby="t-world">
+    <div class="wrap">
+      <h2 class="h2" id="t-world">{{t026}}<span>{{t027}}</span></h2>
+      <div class="globe" data-scene="globe" role="img" aria-label="{{t028}}">
+        <canvas aria-hidden="true"></canvas>
+        <div class="bub src" aria-hidden="true"><span class="bl"></span><span class="bt"></span></div>
+        <div class="bub dst" aria-hidden="true"><span class="bl"></span><span class="bt"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="t-nothing">
+    <div class="wrap">
+      <h2 class="h2" id="t-nothing">{{t029}}</h2>
+      <ol class="dialog" data-scene="dialog">
+        <li><span>{{t030}}</span><i aria-hidden="true">{{t031}}</i><span>{{t032}}</span></li>
+        <li><span>{{t033}}</span><i aria-hidden="true">{{t034}}</i><span>{{t035}}</span></li>
+        <li class="last"><span>{{t036}}</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="t-apps">
+    <div class="wrap">
+      <h2 class="h2" id="t-apps">{{t037}}</h2>
+      <ul class="apps-list">
+        <li>{{t038}}</li>
+        <li>{{t039}}</li>
+        <li>{{t040}}</li>
+        <li>{{t041}}</li>
+      </ul>
+      <p class="apps-os">{{t042}}</p>
+    </div>
+  </section>
+
+  <section class="sec hello" aria-labelledby="t-hello">
+    <div class="wrap">
+      <h2 class="h2" id="t-hello">{{t043}}<span>{{t044}}</span></h2>
+      <div class="say" data-scene="hello" aria-hidden="true">
+        <div class="word" dir="auto">{{t045}}</div>
+        <div class="lname" dir="auto">{{t046}}</div>
+      </div>
+      <ul class="names" aria-label="{{t047}}">{{NAMES}}</ul>
+    </div>
+  </section>
+
+  <section class="sec" id="tarifs" aria-labelledby="t-tarifs">
+    <div class="wrap">
+      <h2 class="h2" id="t-tarifs">{{t048}}</h2>
+      <p class="lede">{{t049}}</p>
+      <p class="trial"><strong>{{t073}}</strong>{{t074}}</p>
+      <p class="fine">{{t077}}</p>
+      <div class="plans" data-plans>{{PLANS}}</div>
+      <p class="fine">{{t050}}</p>
+    </div>
+  </section>
+
+  <section class="sec" id="entreprises" aria-labelledby="t-biz">
+    <div class="wrap biz-grid">
+      <div>
+        <h2 class="h2" id="t-biz">{{t051}}</h2>
+        <div class="biz-cta">
+          <button type="button" class="btn ghost big" id="contact" disabled aria-describedby="contact-msg">{{t052}}</button>
+          <p class="msg" id="contact-msg">{{t053}}</p>
+        </div>
+      </div>
+      <ul class="biz-points">
+        <li><b>{{t054}}</b>{{t055}}</li>
+        <li><b>{{t056}}</b>{{t057}}</li>
+        <li><b>{{t058}}</b>{{t059}}</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec" id="questions" aria-labelledby="t-faq">
+    <div class="wrap faq-grid">
+      <h2 class="h2" id="t-faq">{{t060}}</h2>
+      <div class="qa">{{FAQ}}</div>
+    </div>
+  </section>
+
+  <section class="finale" aria-labelledby="t-slogan">
+    <div class="wrap">
+      <h2 class="slogan" id="t-slogan">{{t061}}<span>{{t062}}</span>{{t063}}</h2>
+      <div class="cta"><button type="button" class="btn big" disabled aria-describedby="download-msg">{{t064}}</button></div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-grid">
+    <a class="brand" href="#haut"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 10v4M9.3 7.5v9M12.6 9v6M15.9 6.5v11M19 10.5v3"/></svg></i>{{t065}}</a>
+    <ul class="foot-langs" data-langs="footer" aria-label="{{t066}}">{{LANGUAGES}}</ul>
+    <div class="foot-bottom">
+      <p><span aria-disabled="true">{{t067}}</span>{{t068}}<span aria-disabled="true">{{t069}}</span>{{t070}}<span aria-disabled="true">{{t071}}</span></p>
+      <p>{{t072}}</p>
+    </div>
+  </div>
+</footer>

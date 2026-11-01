@@ -1,0 +1,394 @@
+{
+  "locale": "fr",
+  "review": {
+    "author": "Hermes — intégration et traduction à relire",
+    "reviewer": null,
+    "status": "EN_ATTENTE_RELECTEUR_DISTINCT",
+    "scope": "Toutes chaînes statiques, SEO, UI, ARIA, LANGS, SENT, CITIES, REPLY, TARIFS, six FAQ et avis de téléchargement. Aucun avis historique ne vaut pour ces octets."
+  },
+  "source": {
+    "file": "source-tarifs-20261101T1911Z.html",
+    "sha256": "69a1d3719451f4b915a4ad0b6b6fa4eb10b3cb95611dec04ea1d44c03d2f6e07",
+    "author": "Claude"
+  },
+  "seo": {
+    "title": "Diqto Voice — La barrière de la langue vient de tomber",
+    "description": "Parlez votre langue dans vos réunions Teams, Zoom, Google Meet et Webex. Diqto Voice, sur Windows et Mac.",
+    "selectorTitle": "Diqto Voice — Choisir la langue du site",
+    "selectorDescription": "Choisissez la langue de cet aperçu privé Diqto Voice."
+  },
+  "selector": {
+    "title": "Choisir la langue du site",
+    "note": "Aperçu privé : contenus et traductions en cours de validation.",
+    "unavailable": "Contenu en préparation"
+  },
+  "static": {
+    "t001": "Aller au contenu",
+    "t002": "Diqto Voice, accueil",
+    "t003": "Diqto Voice",
+    "t004": "Navigation principale",
+    "t005": "Tarifs",
+    "t006": "Entreprises",
+    "t007": "Questions",
+    "t008": "Langue du site : Français",
+    "t009": "Français",
+    "t010": "Mettre les animations en pause",
+    "t011": "Mettre les animations en pause",
+    "t012": "Essayer gratuitement",
+    "t013": "Menu",
+    "t014": "Navigation principale",
+    "t015": "Tarifs",
+    "t016": "Entreprises",
+    "t017": "Questions",
+    "t018": "Langue du site",
+    "t019": "Essayer gratuitement",
+    "t020": "La barrière de la langue vient de ",
+    "t021": "tomber",
+    "t022": ".",
+    "t023": "Essayer gratuitement",
+    "t024": "Voir les tarifs",
+    "t025": "Windows et Mac · Teams, Zoom, Google Meet, Webex",
+    "t026": "Dites-le une fois. ",
+    "t027": "Le monde l'entend dans sa langue.",
+    "t028": "Globe animé : une phrase dite en français à Paris part vers New York, Mexico, São Paulo, Berlin, Milan, Moscou, Mumbai, Hô Chi Minh-Ville, Jakarta, Shanghai, Séoul et Tokyo, où chacun la reçoit dans sa langue. Une réponse en portugais revient de São Paulo et arrive à Paris en français.",
+    "t029": "Votre interlocuteur n'installe rien.",
+    "t030": "Vous parlez français.",
+    "t031": "→",
+    "t032": "Il vous entend en japonais.",
+    "t033": "Il répond en japonais.",
+    "t034": "→",
+    "t035": "Vous l'entendez en français.",
+    "t036": "Il n'a rien installé.",
+    "t037": "Dans les réunions que vous faites déjà.",
+    "t038": "Teams",
+    "t039": "Zoom",
+    "t040": "Google Meet",
+    "t041": "Webex",
+    "t042": "Sur Windows et sur Mac.",
+    "t043": "Chacun garde sa langue. ",
+    "t044": "Tout le monde se comprend.",
+    "t045": "Bonjour",
+    "t046": "Français",
+    "t047": "Exemples de langues illustrées",
+    "t048": "Un prix simple : l'heure de réunion.",
+    "t049": "Une heure, c’est une heure de traduction allumée, silences inclus. Une heure dans les deux sens compte une seule fois.",
+    "t050": "Prix hors taxes. Tarifs de lancement.",
+    "t051": "Pour les équipes qui travaillent avec l'étranger.",
+    "t052": "Parler à l'équipe Diqto",
+    "t053": "Contact non activé dans cet aperçu privé.",
+    "t054": "Une facture",
+    "t055": " pour toute l'équipe.",
+    "t056": "Les heures se partagent",
+    "t057": " entre les postes.",
+    "t058": "Un pilote accompagné",
+    "t059": " sur vos vraies réunions.",
+    "t060": "Vos questions.",
+    "t061": "Votre voix n'a plus de ",
+    "t062": "frontières",
+    "t063": ".",
+    "t064": "Essayer gratuitement",
+    "t065": "Diqto Voice",
+    "t066": "Langues du site",
+    "t067": "Mentions légales",
+    "t068": " · ",
+    "t069": "Confidentialité",
+    "t070": " · ",
+    "t071": "Conditions de vente",
+    "t072": "© 2026 Diqto SAS",
+    "t073": "Essayez gratuitement :",
+    "t074": " 1 heure offerte, sans carte bancaire.",
+    "t076": "Téléchargement non disponible dans cet aperçu privé.",
+    "t077": "Une seule fois par e-mail vérifié et installation. Créez et vérifiez votre compte dans l’application. Après l’essai, aucun paiement sans choix explicite."
+  },
+  "ui": {
+    "pause": "Mettre les animations en pause",
+    "resume": "Reprendre les animations",
+    "menu": "Menu",
+    "close": "Fermer",
+    "pendingLanguage": "Contenu en préparation",
+    "inactivePurchase": "Achat non activé dans cet aperçu privé.",
+    "inactiveContact": "Contact non activé dans cet aperçu privé.",
+    "reduced": "Animations désactivées selon votre préférence de mouvement réduit."
+  },
+  "motion": {
+    "TARIFS": [
+      {
+        "id": "essentiel",
+        "nom": "Essentiel",
+        "prix": "29 €",
+        "unite": "HT / mois",
+        "points": [
+          "3 heures incluses",
+          "Heure en plus : 9 € HT, seulement avec votre accord",
+          "Sans engagement"
+        ],
+        "bouton": "Choisir Essentiel",
+        "vedette": false,
+        "message": "Achat non activé dans cet aperçu privé."
+      },
+      {
+        "id": "pro",
+        "nom": "Pro",
+        "prix": "79 €",
+        "unite": "HT / mois",
+        "points": [
+          "10 heures incluses",
+          "Heure en plus : 9 € HT, seulement avec votre accord",
+          "Sans engagement"
+        ],
+        "bouton": "Choisir Pro",
+        "vedette": true,
+        "message": "Achat non activé dans cet aperçu privé."
+      },
+      {
+        "id": "entreprises",
+        "nom": "Entreprises",
+        "prix": "Sur devis",
+        "unite": "",
+        "points": [
+          "Plusieurs postes, une seule facture",
+          "Heures partagées dans l'équipe",
+          "Pilote accompagné"
+        ],
+        "bouton": "Nous écrire",
+        "vedette": false,
+        "message": "Contact non activé dans cet aperçu privé."
+      }
+    ],
+    "LANGS": [
+      [
+        "fr",
+        "Français",
+        "Pardon ?",
+        "Bonjour"
+      ],
+      [
+        "en",
+        "English",
+        "Sorry?",
+        "Hello"
+      ],
+      [
+        "es",
+        "Español",
+        "¿Perdón?",
+        "Hola"
+      ],
+      [
+        "pt",
+        "Português",
+        "Como?",
+        "Olá"
+      ],
+      [
+        "de",
+        "Deutsch",
+        "Wie bitte?",
+        "Hallo"
+      ],
+      [
+        "it",
+        "Italiano",
+        "Come, scusi?",
+        "Ciao"
+      ],
+      [
+        "ja",
+        "日本語",
+        "何ですか？",
+        "こんにちは"
+      ],
+      [
+        "zh",
+        "中文",
+        "你说什么？",
+        "你好"
+      ],
+      [
+        "ko",
+        "한국어",
+        "뭐라고요?",
+        "안녕하세요"
+      ],
+      [
+        "ru",
+        "Русский",
+        "Простите?",
+        "Здравствуйте"
+      ],
+      [
+        "hi",
+        "हिन्दी",
+        "क्या कहा?",
+        "नमस्ते"
+      ],
+      [
+        "id",
+        "Bahasa Indonesia",
+        "Maaf, apa?",
+        "Halo"
+      ],
+      [
+        "vi",
+        "Tiếng Việt",
+        "Xin lỗi, gì cơ?",
+        "Xin chào"
+      ]
+    ],
+    "SENT": [
+      "Français",
+      "Bonjour à tous, on peut commencer."
+    ],
+    "CITIES": [
+      [
+        "Berlin",
+        13.4,
+        52.52,
+        "Deutsch",
+        "Hallo zusammen, wir können anfangen."
+      ],
+      [
+        "Milan",
+        9.19,
+        45.46,
+        "Italiano",
+        "Ciao a tutti, possiamo cominciare."
+      ],
+      [
+        "Moscou",
+        37.62,
+        55.75,
+        "Русский",
+        "Всем привет, можем начинать."
+      ],
+      [
+        "Mumbai",
+        72.88,
+        19.08,
+        "हिन्दी",
+        "सभी को नमस्ते, हम शुरू कर सकते हैं।"
+      ],
+      [
+        "Hô Chi Minh-Ville",
+        106.66,
+        10.76,
+        "Tiếng Việt",
+        "Xin chào mọi người, chúng ta bắt đầu nhé."
+      ],
+      [
+        "Jakarta",
+        106.85,
+        -6.21,
+        "Bahasa Indonesia",
+        "Halo semuanya, kita bisa mulai."
+      ],
+      [
+        "Shanghai",
+        121.47,
+        31.23,
+        "中文",
+        "大家好，我们可以开始了。"
+      ],
+      [
+        "Séoul",
+        126.98,
+        37.57,
+        "한국어",
+        "안녕하세요 여러분, 시작하겠습니다."
+      ],
+      [
+        "Tokyo",
+        139.69,
+        35.69,
+        "日本語",
+        "皆さん、こんにちは。始めましょう。"
+      ],
+      [
+        "New York",
+        -74,
+        40.71,
+        "English",
+        "Hello everyone, we can get started."
+      ],
+      [
+        "Mexico",
+        -99.13,
+        19.43,
+        "Español",
+        "Hola a todos, podemos empezar."
+      ],
+      [
+        "São Paulo",
+        -46.63,
+        -23.55,
+        "Português",
+        "Olá a todos, podemos começar."
+      ]
+    ],
+    "REPLY": {
+      "fromIndex": 11,
+      "say": [
+        "Português",
+        "Sim, vamos começar."
+      ],
+      "hear": [
+        "Français",
+        "Oui, on commence."
+      ]
+    },
+    "originName": "Paris"
+  },
+  "FAQ": [
+    {
+      "question": "Qu'est-ce qu'une heure ?",
+      "answer": "Le temps où la traduction est allumée, silences inclus. Une heure dans les deux sens compte pour une heure, pas deux."
+    },
+    {
+      "question": "Mon interlocuteur doit-il installer quelque chose ?",
+      "answer": "Non. Vous seul avez Diqto Voice."
+    },
+    {
+      "question": "Avec quelles applications ?",
+      "answer": "Teams, Zoom, Google Meet et Webex, sur Windows et sur Mac."
+    },
+    {
+      "question": "Et si j'utilise toutes mes heures ?",
+      "answer": "Diqto Voice vous prévient. Vous ajoutez des heures ou vous attendez le mois suivant. Rien n'est facturé sans votre accord."
+    },
+    {
+      "question": "Puis-je arrêter quand je veux ?",
+      "answer": "Oui, l'abonnement est sans engagement."
+    },
+    {
+      "question": "Qui est derrière Diqto Voice ?",
+      "answer": "Diqto SAS, une entreprise française."
+    }
+  ],
+  "beta": {
+    "title": "L’essai commence dans l’application",
+    "intro": "Téléchargez Diqto Voice, puis créez et vérifiez votre compte e-mail dans l’application. Une heure offerte une seule fois par e-mail vérifié et installation, sans carte bancaire. Ensuite, choisissez Essentiel ou Pro : aucun paiement sans votre choix explicite.",
+    "back": "Retour à l’accueil",
+    "download": "Essayer gratuitement"
+  },
+  "trial": {
+    "status": "VALIDE_ARBITRAGE_PHILIPPE_20261101_SOIR",
+    "sourceText": "Essayez gratuitement : 1 heure offerte, sans carte bancaire.",
+    "sourceLine": 284,
+    "rendered": true,
+    "oncePer": [
+      "verifiedEmail",
+      "installation"
+    ],
+    "metering": "translation-on-including-silence-duplex-counts-once",
+    "journey": "download > in-app account creation and email verification > one free hour > explicit Essential/Pro choice",
+    "downloadDestination": null,
+    "downloadStatus": "BLOQUE_DESTINATION_ADMISSIBLE_ABSENTE_DU_DEPOT",
+    "backendImplemented": false,
+    "antiAbuseDecisionOnly": "random installation token + server HMAC; no hardware fingerprint; V-13 after V-07, target 2026-11-16"
+  },
+  "legacy": {
+    "title": "Contenu en cours de validation",
+    "notice": "Cette ancienne page est neutralisée dans cet aperçu privé. Aucun engagement technique ou commercial n’y est validé.",
+    "back": "Retour à l’accueil"
+  }
+}
