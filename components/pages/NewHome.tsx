@@ -18,6 +18,7 @@ export function NewHome({ locale }: { locale: Locale }) {
   }).join('');
   const plans = c.motion.TARIFS.map((p) => `<article class="plan${p.vedette ? ' feat' : ''}" aria-labelledby="plan-${p.id}">
     <h3 id="plan-${p.id}">${escape(p.nom)}</h3><p class="price"><b>${escape(p.prix)}</b><span>${escape(p.unite)}</span></p>
+    ${p.ht ? `<p class="ht">${escape(p.ht)}</p>` : ''}
     <ul>${p.points.map((point) => `<li>${escape(point)}</li>`).join('')}</ul>
     <button type="button" class="btn big${p.vedette ? '' : ' ghost'}" disabled aria-describedby="plan-msg-${p.id}">${escape(p.bouton)}</button>
     <p class="msg" id="plan-msg-${p.id}">${escape(p.message)}</p></article>`).join('');

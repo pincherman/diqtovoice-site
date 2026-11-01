@@ -4,7 +4,7 @@
     "author": "Hermes — intégration et traduction à relire",
     "reviewer": null,
     "status": "EN_ATTENTE_RELECTEUR_DISTINCT",
-    "scope": "Toutes chaînes statiques, SEO, UI, ARIA, LANGS, SENT, CITIES, REPLY, TARIFS, six FAQ et avis de téléchargement. Aucun avis historique ne vaut pour ces octets."
+    "scope": "Toutes chaînes statiques, SEO, UI, ARIA, LANGS, SENT, CITIES, REPLY, TARIFS TTC/HT, sept FAQ et avis de téléchargement. Aucun avis historique ne vaut pour ces octets."
   },
   "source": {
     "file": "source-tarifs-20261101T1911Z.html",
@@ -72,7 +72,7 @@
     "t047": "Exemples de langues illustrées",
     "t048": "Un prix simple : l'heure de réunion.",
     "t049": "Une heure, c’est une heure de traduction allumée, silences inclus. Une heure dans les deux sens compte une seule fois.",
-    "t050": "Prix hors taxes. Tarifs de lancement.",
+    "t050": "Prix TTC pour la France (TVA 20 %). Entreprises : prix hors taxes, TVA selon votre pays. Tarifs de lancement.",
     "t051": "Pour les équipes qui travaillent avec l'étranger.",
     "t052": "Parler à l'équipe Diqto",
     "t053": "Contact non activé dans cet aperçu privé.",
@@ -115,11 +115,12 @@
       {
         "id": "essentiel",
         "nom": "Essentiel",
-        "prix": "29 €",
-        "unite": "HT / mois",
+        "prix": "34,80 €",
+        "unite": "TTC / mois",
+        "ht": "soit 29 € HT pour les entreprises",
         "points": [
           "3 heures incluses",
-          "Heure en plus : 9 € HT, seulement avec votre accord",
+          "Heure en plus : 10,80 € TTC (9 € HT), seulement avec votre accord",
           "Sans engagement"
         ],
         "bouton": "Choisir Essentiel",
@@ -129,11 +130,12 @@
       {
         "id": "pro",
         "nom": "Pro",
-        "prix": "79 €",
-        "unite": "HT / mois",
+        "prix": "94,80 €",
+        "unite": "TTC / mois",
+        "ht": "soit 79 € HT pour les entreprises",
         "points": [
           "10 heures incluses",
-          "Heure en plus : 9 € HT, seulement avec votre accord",
+          "Heure en plus : 10,80 € TTC (9 € HT), seulement avec votre accord",
           "Sans engagement"
         ],
         "bouton": "Choisir Pro",
@@ -145,6 +147,7 @@
         "nom": "Entreprises",
         "prix": "Sur devis",
         "unite": "",
+        "ht": "",
         "points": [
           "Plusieurs postes, une seule facture",
           "Heures partagées dans l'équipe",
@@ -354,6 +357,10 @@
     {
       "question": "Et si j'utilise toutes mes heures ?",
       "answer": "Diqto Voice vous prévient. Vous ajoutez des heures ou vous attendez le mois suivant. Rien n'est facturé sans votre accord."
+    },
+    {
+      "question": "Je suis une entreprise : quel prix ?",
+      "answer": "Le prix hors taxes : 29 € pour Essentiel, 79 € pour Pro, 9 € l'heure en plus. La TVA s'ajoute selon votre pays. Une entreprise d'un autre pays de l'Union européenne qui a un numéro de TVA la déclare elle-même."
     },
     {
       "question": "Puis-je arrêter quand je veux ?",

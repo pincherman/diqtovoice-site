@@ -1,6 +1,8 @@
 # Accueils privés FR/EN
 
-Source principale : snapshot Claude `source-tarifs-20261101T1911Z.html` admis le 01/11/2026. `template.html`, `fr.json` et `en.json` contiennent les sections et chaînes statiques, SEO, UI, ARIA, animations, tarifs et six FAQ. Les métadonnées de relecture sont volontairement en attente : l'intégration n'est pas une validation linguistique.
+Source principale : snapshot Claude `source-tarifs-20261101T1911Z.html` admis le 01/11/2026. Complément ciblé : arbitrage Philippe transmis par Claude le 01/11 vers 22:05 Paris et maquette partagée `maquette/site-diqtovoice.html`, objets TARIFS/ht et FAQ entreprise. `template.html`, `fr.json` et `en.json` contiennent les sections et chaînes statiques, SEO, UI, ARIA, animations, tarifs et sept FAQ. Les métadonnées de relecture sont volontairement en attente : l'intégration n'est pas une validation linguistique.
+
+Pour la France, Essentiel 34,80 € TTC/mois et Pro 94,80 € TTC/mois sont affichés avant les montants entreprises 29/79 € HT, sur une ligne secondaire. L'heure supplémentaire est à 10,80 € TTC (9 € HT), uniquement avec accord explicite. La note précise France/TVA 20 %, fiscalité du pays pour les entreprises et tarifs de lancement ; la septième FAQ reprend la maquette. La version anglaise reste à relire. Le champ `source` historique identifie la base, pas ce complément. Aucun achat ni service fiscal activé ; V-13 et ses exigences de paiement/consentement/résiliation restent après V-07.
 
 ## Mur commun multilingue
 
@@ -11,6 +13,8 @@ Chaque relecteur distinct de langue doit vérifier ses quatre phrases dans `wall
 ## Vérification locale
 
 `node scripts/test-wall-data.mjs` vérifie les 52 entrées, l'ordre commun FR/EN et l'expression réellement utilisée par l'animation.
+
+`node scripts/test-home-pricing.mjs` verrouille les textes TTC/HT et les sept FAQ FR/EN ; le harnais Chromium contrôle aussi leur rendu, l'ordre TTC puis HT et les achats toujours désactivés, avec et sans JavaScript.
 
 Après un export statique, lancer `scripts/test-home-preview.mjs` avec `PREVIEW_SCRATCH` et `PREVIEW_ARTIFACTS` pointant vers des dossiers KITT déclarés. `PREVIEW_PREFIX` distingue les nouvelles captures des preuves historiques. Le harnais exerce Chromium réel aux largeurs 375/768/1024/1440, le dessin des quatre familles, la pause/reprise, l'arrêt hors écran, la réduction des animations, le clavier et le mode sans JavaScript. Il refuse les requêtes externes et les méthodes autres que GET.
 

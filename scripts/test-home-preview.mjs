@@ -8,6 +8,8 @@ import { setTimeout as delay } from 'node:timers/promises';
 
 const root = process.cwd(), exported = resolve(root, 'out');
 const wall = JSON.parse(await readFile(resolve(root, 'content/home/wall.json'), 'utf8'));
+const pricingCopy = Object.fromEntries(await Promise.all(['fr', 'en'].map(async locale =>
+  [locale, JSON.parse(await readFile(resolve(root, `content/home/${locale}.json`), 'utf8'))])));
 const wallFamilies = ['PARDON', 'COMPRENDS', 'REPETER', 'LENTEMENT'];
 const scratch = process.env.PREVIEW_SCRATCH, artifacts = process.env.PREVIEW_ARTIFACTS;
 const prefix = process.env.PREVIEW_PREFIX || 'reprise';
@@ -58,11 +60,33 @@ const viewport = width => cdp.send('Emulation.setDeviceMetricsOverride', { width
 const reduce = value => cdp.send('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-reduced-motion', value: value ? 'reduce' : 'no-preference' }] });
 const navigate = async (path, ready = true) => { await cdp.send('Page.navigate', { url: origin + path });
   await until(() => expression(`location.pathname===${JSON.stringify(path)} && document.readyState==='complete' ${ready ? "&& document.documentElement.classList.contains('motion-ready')" : ''}`), `loaded ${path}`);
-  await expression('document.fonts.ready.then(()=>true)'); await delay(250); };
+  await expression('document.fonts.ready.then(()=>true)');
+  await expression('scrollTo({top:0,behavior:"instant"})'); await delay(250); };
 const screenshot = async name => { const { data } = await cdp.send('Page.captureScreenshot', { format: 'png', captureBeyondViewport: false, fromSurface: true });
   await writeFile(resolve(artifacts, `${prefix}-${name}.png`), Buffer.from(data, 'base64')); };
 const scroll = selector => expression(`document.querySelector(${JSON.stringify(selector)}).scrollIntoView({block:'center',behavior:'instant'})`);
 const snapshot = () => expression('JSON.stringify({ticks:__motionProbe.ticks,draws:__motionProbe.draws,word:document.querySelector(".say .word")?.textContent,src:document.querySelector(".src")?.textContent,dst:document.querySelector(".dst")?.textContent})');
+const verifyPricing = async locale => {
+  const observed = await expression(`({plans:[...document.querySelectorAll('.plan')].map(p=>{
+    const price=p.querySelector('.price'),ht=p.querySelector('.ht');
+    return {id:p.querySelector('h3').id,price:price.querySelector('b').textContent,
+      unit:price.querySelector('span').textContent,ht:ht?.textContent||'',
+      below:!ht||(price.nextElementSibling===ht&&ht.getBoundingClientRect().top>=price.getBoundingClientRect().bottom),
+      secondary:!ht||parseFloat(getComputedStyle(ht).fontSize)<parseFloat(getComputedStyle(price.querySelector('b')).fontSize),
+      points:[...p.querySelectorAll('li')].map(n=>n.textContent),disabled:p.querySelector('button').disabled};
+    }),fine:document.querySelector('#tarifs .plans + .fine').textContent,
+    faq:[...document.querySelectorAll('.qa details')].map(d=>({question:d.querySelector('summary').textContent,answer:d.querySelector('p').textContent}))})`);
+  const expected = pricingCopy[locale];
+  assert.equal(observed.fine, expected.static.t050);
+  assert.deepEqual(observed.faq, expected.FAQ);
+  assert.equal(observed.plans.length, 3);
+  observed.plans.forEach((p, i) => {
+    const e = expected.motion.TARIFS[i];
+    assert.equal(p.id, `plan-${e.id}`); assert.equal(p.price, e.prix); assert.equal(p.unit, e.unite);
+    assert.equal(p.ht, e.ht); assert.deepEqual(p.points, e.points);
+    assert(p.below && p.secondary && p.disabled, 'VAT-first, net secondary below, purchasing disabled');
+  });
+};
 try {
   const portFile = resolve(profile, 'DevToolsActivePort');
   const port = await until(async () => { try {
@@ -108,7 +132,8 @@ try {
       missingIds:[...document.querySelectorAll('[aria-describedby],[aria-labelledby]')].flatMap(n=>[n.getAttribute('aria-describedby'),n.getAttribute('aria-labelledby')].filter(Boolean).flatMap(s=>s.split(' '))).filter(id=>!document.getElementById(id)),
       text:document.body.innerText,paused:document.querySelector('#pause').disabled,
       veiled:document.querySelectorAll('.veiled').length,pending:__motionProbe.pending.size})`);
-    assert.equal(state.lang, locale); assert.equal(state.overflow, false); assert.equal(state.faqs, 6);
+    assert.equal(state.lang, locale); assert.equal(state.overflow, false); assert.equal(state.faqs, 7);
+    await verifyPricing(locale);
     assert.deepEqual(state.apps, ['Teams', 'Zoom', 'Google Meet', 'Webex']); assert.equal(state.forms, 0);
     assert.equal(state.alternates, 0); assert.equal(state.canon, `https://diqtovoice.com/${locale}/`);
     assert.match(state.robots, /noindex/); assert(state.disabled); assert(state.paused); assert.equal(state.veiled, 0);
@@ -119,6 +144,14 @@ try {
     assert.match(state.text, locale === 'fr' ? /par e-mail vérifié et installation/ : /per verified email and installation/);
     const fixed = await snapshot(); await delay(400); assert.equal(await snapshot(), fixed, 'Reduced motion must be fixed');
     await screenshot(`${locale}-${width}-reduced`);
+    if (width === 375 || width === 1440) {
+      await scroll(width === 375 ? '.plan:first-child' : '#tarifs');
+      await screenshot(`${locale}-${width}-pricing`);
+      await expression("document.querySelectorAll('.qa details')[4].open=true");
+      await scroll('.qa details:nth-child(5)');
+      assert.equal(await expression('document.documentElement.scrollWidth>innerWidth'), false);
+      await screenshot(`${locale}-${width}-business-faq`);
+    }
     // Reduced motion uses the final, cleared wall. Observe phrases during the native opening instead.
     await reduce(false); await navigate(`/${locale}/`);
     await until(async () => {
@@ -182,6 +215,7 @@ try {
   await viewport(375); await navigate('/en/', false);
   const nojs = await expression('({text:document.body.innerText,main:!!document.querySelector("h1"),nav:getComputedStyle(document.querySelector("#menu")).display,veiled:document.querySelectorAll(".veiled").length})');
   assert(nojs.main); assert.equal(nojs.veiled, 0); assert.notEqual(nojs.nav, 'none'); assert.match(nojs.text, /1 hour free/);
+  await verifyPricing('en');
   await screenshot('en-375-nojs'); check('no-javascript', { readable: true, menu: nojs.nav });
   await cdp.send('Emulation.setScriptExecutionDisabled', { value: false });
   for (const path of ['/', '/fr/beta/', '/en/beta/']) {

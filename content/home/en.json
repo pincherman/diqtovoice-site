@@ -4,7 +4,7 @@
     "author": "Hermes — intégration et traduction à relire",
     "reviewer": null,
     "status": "EN_ATTENTE_RELECTEUR_DISTINCT",
-    "scope": "Toutes chaînes statiques, SEO, UI, ARIA, LANGS, SENT, CITIES, REPLY, TARIFS, six FAQ et avis de téléchargement. Aucun avis historique ne vaut pour ces octets."
+    "scope": "Toutes chaînes statiques, SEO, UI, ARIA, LANGS, SENT, CITIES, REPLY, TARIFS TTC/HT, sept FAQ et avis de téléchargement. Aucun avis historique ne vaut pour ces octets."
   },
   "source": {
     "file": "source-tarifs-20261101T1911Z.html",
@@ -72,7 +72,7 @@
     "t047": "Illustrated language examples",
     "t048": "Simple pricing: by meeting hour.",
     "t049": "One hour is one hour with translation switched on, including silence. Translating in both directions counts only once.",
-    "t050": "Prices exclude tax. Launch pricing.",
+    "t050": "Prices include VAT for France (20% VAT). Businesses: prices exclude VAT; VAT depends on your country. Launch pricing.",
     "t051": "For teams working across borders.",
     "t052": "Talk to the Diqto team",
     "t053": "Contact is not enabled in this private preview.",
@@ -115,11 +115,12 @@
       {
         "id": "essentiel",
         "nom": "Essential",
-        "prix": "€29",
-        "unite": "excl. tax / month",
+        "prix": "€34.80",
+        "unite": "incl. VAT / month",
+        "ht": "or €29 excl. VAT for businesses",
         "points": [
           "3 hours included",
-          "Additional hour: €9 excl. tax, only with your agreement",
+          "Additional hour: €10.80 incl. VAT (€9 excl. VAT), only with your agreement",
           "No minimum term"
         ],
         "bouton": "Choose Essential",
@@ -129,11 +130,12 @@
       {
         "id": "pro",
         "nom": "Pro",
-        "prix": "€79",
-        "unite": "excl. tax / month",
+        "prix": "€94.80",
+        "unite": "incl. VAT / month",
+        "ht": "or €79 excl. VAT for businesses",
         "points": [
           "10 hours included",
-          "Additional hour: €9 excl. tax, only with your agreement",
+          "Additional hour: €10.80 incl. VAT (€9 excl. VAT), only with your agreement",
           "No minimum term"
         ],
         "bouton": "Choose Pro",
@@ -145,6 +147,7 @@
         "nom": "Business",
         "prix": "On request",
         "unite": "",
+        "ht": "",
         "points": [
           "Multiple workstations, one invoice",
           "Shared hours for your team",
@@ -354,6 +357,10 @@
     {
       "question": "What if I use all my hours?",
       "answer": "Diqto Voice lets you know. You can add hours or wait until the following month. Nothing is charged without your agreement."
+    },
+    {
+      "question": "What price do I pay as a business?",
+      "answer": "The price excluding VAT: €29 for Essential, €79 for Pro, €9 per additional hour. VAT is added according to your country. A business in another EU country with a VAT number accounts for VAT itself."
     },
     {
       "question": "Can I cancel whenever I want?",
