@@ -41,6 +41,19 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - name: Checkout notification script
+        uses: actions/checkout@v4
+      - name: Download published artifact for sitemap
+        uses: actions/download-artifact@v4
+        with:
+          name: github-pages
+          path: .pages-artifact
+      - name: Read published sitemap
+        run: |
+          mkdir -p out
+          tar -xf .pages-artifact/artifact.tar -C out ./sitemap.xml
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+      - name: Notify IndexNow after publication
+        run: python3 scripts/submit-indexnow.py

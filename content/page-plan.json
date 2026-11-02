@@ -1,0 +1,150 @@
+{
+  "status": "draft-not-published",
+  "publicationGate": "Contenu relu avec Claude après sa recherche SEO/IA ; aucun parcours de vente ou téléchargement non ouvert.",
+  "pages": [
+    {
+      "section": "usage",
+      "fr": {
+        "path": "/fr/reunions/",
+        "title": "Réunions"
+      },
+      "en": {
+        "path": "/en/meetings/",
+        "title": "Meetings"
+      },
+      "outline": [
+        "Besoin concret",
+        "Fonctionnement et limites réellement établis",
+        "Réglages ou étapes utiles",
+        "FAQ spécifique et liens vers les guides"
+      ],
+      "status": "draft"
+    },
+    {
+      "section": "usage",
+      "fr": {
+        "path": "/fr/appels/",
+        "title": "Appels"
+      },
+      "en": {
+        "path": "/en/calls/",
+        "title": "Calls"
+      },
+      "outline": [
+        "Besoin concret",
+        "Fonctionnement et limites réellement établis",
+        "Réglages ou étapes utiles",
+        "FAQ spécifique et liens vers les guides"
+      ],
+      "status": "draft"
+    },
+    {
+      "section": "usage",
+      "fr": {
+        "path": "/fr/voyages/",
+        "title": "Voyages"
+      },
+      "en": {
+        "path": "/en/travel/",
+        "title": "Travel"
+      },
+      "outline": [
+        "Besoin concret",
+        "Fonctionnement et limites réellement établis",
+        "Réglages ou étapes utiles",
+        "FAQ spécifique et liens vers les guides"
+      ],
+      "status": "draft"
+    },
+    {
+      "section": "usage",
+      "fr": {
+        "path": "/fr/entreprises/",
+        "title": "Entreprises"
+      },
+      "en": {
+        "path": "/en/business/",
+        "title": "Business"
+      },
+      "outline": [
+        "Besoin concret",
+        "Fonctionnement et limites réellement établis",
+        "Réglages ou étapes utiles",
+        "FAQ spécifique et liens vers les guides"
+      ],
+      "status": "draft"
+    },
+    {
+      "section": "platform",
+      "fr": {
+        "path": "/fr/mac/",
+        "title": "Mac"
+      },
+      "en": {
+        "path": "/en/mac/",
+        "title": "Mac"
+      },
+      "outline": [
+        "Besoin concret",
+        "Fonctionnement et limites réellement établis",
+        "Réglages ou étapes utiles",
+        "FAQ spécifique et liens vers les guides"
+      ],
+      "status": "draft"
+    },
+    {
+      "section": "platform",
+      "fr": {
+        "path": "/fr/windows/",
+        "title": "Windows"
+      },
+      "en": {
+        "path": "/en/windows/",
+        "title": "Windows"
+      },
+      "outline": [
+        "Besoin concret",
+        "Fonctionnement et limites réellement établis",
+        "Réglages ou étapes utiles",
+        "FAQ spécifique et liens vers les guides"
+      ],
+      "status": "draft"
+    },
+    {
+      "section": "support",
+      "fr": {
+        "path": "/fr/faq/",
+        "title": "Questions fréquentes"
+      },
+      "en": {
+        "path": "/en/faq/",
+        "title": "Frequently asked questions"
+      },
+      "outline": [
+        "Besoin concret",
+        "Fonctionnement et limites réellement établis",
+        "Réglages ou étapes utiles",
+        "FAQ spécifique et liens vers les guides"
+      ],
+      "status": "draft"
+    },
+    {
+      "section": "support",
+      "fr": {
+        "path": "/fr/guides/",
+        "title": "Guides Diqto Voice"
+      },
+      "en": {
+        "path": "/en/guides/",
+        "title": "Diqto Voice guides"
+      },
+      "outline": [
+        "Besoin concret",
+        "Fonctionnement et limites réellement établis",
+        "Réglages ou étapes utiles",
+        "FAQ spécifique et liens vers les guides"
+      ],
+      "status": "draft"
+    }
+  ]
+}
