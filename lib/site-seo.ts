@@ -15,7 +15,7 @@ export function publicMetadata(locale: Locale, page: PublicPage = 'home'): Metad
   languages['x-default'] = origin + (page === 'home' ? '/' : pagePath('fr', page));
   return { metadataBase: new URL(origin), title, description,
     alternates: { canonical: origin + pagePath(locale, page), languages },
-    robots: { index: page !== 'legal', follow: true },
+    robots: page === 'legal' ? 'noindex, noarchive, nosnippet' : { index: true, follow: true },
     openGraph: { title, description, url: origin + pagePath(locale, page), siteName: 'Diqto Voice', type: 'website', locale: locale === 'fr' ? 'fr_FR' : 'en_US', alternateLocale: locale === 'fr' ? 'en_US' : 'fr_FR', images: [{ url: '/motion/globe-still.png', alt: 'Diqto Voice' }] },
     twitter: { card: 'summary_large_image', title, description, images: ['/motion/globe-still.png'] },
   };

@@ -8,6 +8,7 @@ import subprocess
 import unicodedata
 import unittest
 from urllib.parse import unquote
+from urllib.robotparser import RobotFileParser
 from html.parser import HTMLParser
 import xml.etree.ElementTree as ET
 
@@ -131,7 +132,8 @@ class Privacy(unittest.TestCase):
         for locale in ('fr', 'en'):
             for page in ('', 'privacy', 'legal'):
                 robots = [m.get('content') for m in doc(locale, page).meta if m.get('name') == 'robots']
-                self.assertEqual(robots, ['noindex, follow' if page == 'legal' else 'index, follow'])
+                expected = 'noindex, noarchive, nosnippet' if page == 'legal' else 'index, follow'
+                self.assertEqual(robots, [expected])
 
     def test_07_legal_text_unchanged_and_footer_links_preserved(self):
         baseline = subprocess.check_output(['git', 'show', f'{BASE}:components/pages/PublicInfo.tsx'], cwd=ROOT, text=True)
@@ -154,6 +156,41 @@ class Privacy(unittest.TestCase):
         paths = sorted((ROOT / 'content').rglob('*'))
         bad = [str(p.relative_to(ROOT)) for p in paths if p.is_file() and any(t in normalize(p.read_text(errors='ignore')) for t in tokens)]
         self.assertEqual(bad, [], 'Private address in content inputs')
+
+
+    def test_10_ai_robots_exact_legal_exclusions(self):
+        groups = {}
+        current = None
+        for line in (OUT / 'robots.txt').read_text().splitlines():
+            key, sep, value = line.partition(':')
+            if not sep:
+                continue
+            key, value = key.strip().lower(), value.strip()
+            if key == 'user-agent':
+                self.assertNotIn(value, groups, 'Duplicate crawler group')
+                current = groups[value] = {'allow': [], 'disallow': []}
+            elif key in ('allow', 'disallow') and current is not None:
+                current[key].append(value)
+        agents = ['GPTBot', 'OAI-SearchBot', 'ChatGPT-User', 'ClaudeBot',
+                  'Claude-SearchBot', 'PerplexityBot', 'Google-Extended', 'Applebot-Extended']
+        for agent in agents:
+            with self.subTest(agent=agent):
+                self.assertIn(agent, groups)
+                self.assertEqual(groups[agent]['allow'], ['/'])
+                self.assertEqual(sorted(groups[agent]['disallow']), ['/en/legal/', '/fr/legal/'])
+        for agent in ('*', 'Googlebot', 'Bingbot'):
+            self.assertIn(agent, groups)
+            self.assertEqual(groups[agent], {'allow': ['/'], 'disallow': []})
+        self.assertEqual(set(groups), set(agents + ['*', 'Googlebot', 'Bingbot']))
+
+    def test_11_search_robots_keep_legal_readable(self):
+        parser = RobotFileParser()
+        parser.parse((OUT / 'robots.txt').read_text().splitlines())
+        for agent in ['Googlebot', 'Bingbot', 'UnlistedBot']:
+            for locale in ('fr', 'en'):
+                with self.subTest(agent=agent, locale=locale):
+                    self.assertTrue(parser.can_fetch(agent, f'{ORIGIN}/{locale}/legal/'))
+                    self.assertTrue(parser.can_fetch(agent, f'{ORIGIN}/{locale}/privacy/'))
 
 
 if __name__ == '__main__':
