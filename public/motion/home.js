@@ -25,7 +25,7 @@
   const wake = () => { if (!frameId && active()) { last = performance.now(); frameId = requestAnimationFrame(loop); } };
   const loop = now => {
     frameId = 0;
-    const dt = Math.min(0.05, (now - last) / 1000); last = now;
+    const dt = clamp((now - last) / 1000, 0, 0.05); last = now;
     if (!active()) return;
     for (const s of scenes) if (s.visible && !s.finished) s.update(dt);
     if (active()) frameId = requestAnimationFrame(loop);
