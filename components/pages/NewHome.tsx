@@ -1,30 +1,19 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { homeCopy, languageName, siteOrder } from '@/lib/home-copy';
+import { homeCopy, languageName } from '@/lib/home-copy';
+import { homeSchema } from '@/lib/site-seo';
 import type { Locale } from '@/lib/i18n';
 import wall from '@/content/home/wall.json';
-
 const template = readFileSync(join(process.cwd(), 'content/home/template.html'), 'utf8');
 const escape = (text: string) => text.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!);
-
+const json = (data: unknown) => JSON.stringify(data).replace(/</g, '\u003c');
 export function NewHome({ locale }: { locale: Locale }) {
   const c = homeCopy[locale];
-  const languages = siteOrder.map((code) => {
-    const current = code === locale ? ' aria-current="page"' : '';
-    const content = code === 'fr' || code === 'en'
-      ? `<a href="/${code}/"${current}>${escape(languageName(code))}</a>`
-      : `<span aria-disabled="true" title="${escape(c.ui.pendingLanguage)}">${escape(languageName(code))}</span>`;
-    return `<li lang="${code}" dir="auto"${code === locale ? ' aria-current="true"' : ''}>${content}</li>`;
-  }).join('');
-  const plans = c.motion.TARIFS.map((p) => `<article class="plan${p.vedette ? ' feat' : ''}" aria-labelledby="plan-${p.id}">
-    <h3 id="plan-${p.id}">${escape(p.nom)}</h3><p class="price"><b>${escape(p.prix)}</b><span>${escape(p.unite)}</span></p>
-    ${p.ht ? `<p class="ht">${escape(p.ht)}</p>` : ''}
-    <ul>${p.points.map((point) => `<li>${escape(point)}</li>`).join('')}</ul>
-    <button type="button" class="btn big${p.vedette ? '' : ' ghost'}" disabled aria-describedby="plan-msg-${p.id}">${escape(p.bouton)}</button>
-    <p class="msg" id="plan-msg-${p.id}">${escape(p.message)}</p></article>`).join('');
+  const languages = (['fr', 'en'] as const).map((code) =>
+    `<li lang="${code}"><a href="/${code}/"${code === locale ? ' aria-current="page"' : ''}>${escape(languageName(code))}</a></li>`).join('');
   const replacements: Record<string, string> = {
     ...Object.fromEntries(Object.entries(c.static).map(([key, value]) => [key, escape(value)])),
-    LANGUAGES: languages, PLANS: plans,
+    LANGUAGES: languages, LEGAL_URL: `/${locale}/legal/`, PRIVACY_URL: `/${locale}/privacy/`,
     FAQ: c.FAQ.map(({ question, answer }) => `<details><summary>${escape(question)}</summary><p>${escape(answer)}</p></details>`).join(''),
     NAMES: c.motion.LANGS.map(([code, name]) => `<li lang="${code}" dir="auto">${escape(name)}</li>`).join(''),
   };
@@ -32,10 +21,10 @@ export function NewHome({ locale }: { locale: Locale }) {
     if (!(key in replacements)) throw new Error(`Missing home corpus key: ${locale}/${key}`);
     return replacements[key];
   });
-  const motion = JSON.stringify({ ...c.motion, WALL: wall, ui: c.ui }).replace(/</g, '\\u003c');
   return <>
     <div suppressHydrationWarning dangerouslySetInnerHTML={{ __html: html }} />
-    <script id="home-corpus" type="application/json" dangerouslySetInnerHTML={{ __html: motion }} />
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: json(homeSchema(locale)) }} />
+    <script id="home-corpus" type="application/json" dangerouslySetInnerHTML={{ __html: json({ ...c.motion, WALL: wall, ui: c.ui }) }} />
     <script src="/motion/home.js" defer />
   </>;
 }

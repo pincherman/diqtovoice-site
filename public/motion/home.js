@@ -62,7 +62,7 @@
         }
         k += 5;
       }
-      veils.forEach(v => v.classList.add("veiled"));
+      // Keep the headline visible from first paint; the wall animates behind it.
     };
     const BUILD = () => bricks.reduce((m, b) => Math.max(m, b.delay), 0) + 0.5;
     const mix = (a, b, k) => {
