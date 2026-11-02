@@ -15,14 +15,14 @@ export function publicMetadata(locale: Locale, page: PublicPage = 'home'): Metad
   languages['x-default'] = origin + (page === 'home' ? '/' : pagePath('fr', page));
   return { metadataBase: new URL(origin), title, description,
     alternates: { canonical: origin + pagePath(locale, page), languages },
-    robots: { index: true, follow: true },
+    robots: { index: page !== 'legal', follow: true },
     openGraph: { title, description, url: origin + pagePath(locale, page), siteName: 'Diqto Voice', type: 'website', locale: locale === 'fr' ? 'fr_FR' : 'en_US', alternateLocale: locale === 'fr' ? 'en_US' : 'fr_FR', images: [{ url: '/motion/globe-still.png', alt: 'Diqto Voice' }] },
     twitter: { card: 'summary_large_image', title, description, images: ['/motion/globe-still.png'] },
   };
 }
 export function homeSchema(locale: Locale) {
   return { '@context': 'https://schema.org', '@graph': [
-    { '@type': 'Organization', '@id': `${origin}/#organization`, name: 'DIQTO', legalName: 'DIQTO SAS', identifier: { '@type': 'PropertyValue', propertyID: 'SIREN', value: '106 569 619' }, url: origin, address: { '@type': 'PostalAddress', streetAddress: '498 rue Paradis', postalCode: '13008', addressLocality: 'Marseille', addressCountry: 'FR' } },
+    { '@type': 'Organization', '@id': `${origin}/#organization`, name: 'DIQTO', legalName: 'DIQTO SAS', identifier: { '@type': 'PropertyValue', propertyID: 'SIREN', value: '106 569 619' }, url: origin, address: { '@type': 'PostalAddress', addressLocality: 'Marseille', addressCountry: 'FR' } },
     { '@type': 'SoftwareApplication', '@id': `${origin}/#software`, name: 'Diqto Voice', applicationCategory: 'CommunicationApplication', operatingSystem: ['macOS', 'Windows'], description: descriptions[locale].home[1], inLanguage: locale, url: origin + pagePath(locale, 'home'), publisher: { '@id': `${origin}/#organization` } },
     { '@type': 'FAQPage', '@id': origin + pagePath(locale, 'home') + '#questions', inLanguage: locale, mainEntity: homeCopy[locale].FAQ.map(({ question, answer }) => ({ '@type': 'Question', name: question, acceptedAnswer: { '@type': 'Answer', text: answer } })) },
   ] };

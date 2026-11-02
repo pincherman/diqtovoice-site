@@ -18,6 +18,6 @@ Public downloads, purchases and waiting-list sign-ups are not open on this websi
 
 ## Publisher
 
-DIQTO SAS. SIREN 106 569 619. 498 rue Paradis, 13008 Marseille, France.
+DIQTO SAS, SIREN 106 569 619, Marseille, France.
 Publication director: Philippe Incherman. Hosting: GitHub Pages.
 The home-page FAQ is the current public source for availability. Pages under preparation are not product documentation or launch commitments.
