@@ -6,7 +6,7 @@ import type { Locale } from '@/lib/i18n';
 import wall from '@/content/home/wall.json';
 const template = readFileSync(join(process.cwd(), 'content/home/template.html'), 'utf8');
 const escape = (text: string) => text.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!);
-const json = (data: unknown) => JSON.stringify(data).replace(/</g, '\u003c');
+const json = (data: unknown) => JSON.stringify(data).replace(/</g, '\\u003c');
 export function NewHome({ locale }: { locale: Locale }) {
   const c = homeCopy[locale];
   const languages = (['fr', 'en'] as const).map((code) =>
