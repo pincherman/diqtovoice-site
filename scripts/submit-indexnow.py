@@ -19,9 +19,12 @@ def main():
     if keys[0].stem != key:
         raise RuntimeError("IndexNow ownership filename and content differ")
     tree = ET.parse(ROOT / "out" / "sitemap.xml")
-    urls = sorted({ORIGIN + "/"} | {e.text for e in tree.findall("{http://www.sitemaps.org/schemas/sitemap/0.9}url/{http://www.sitemaps.org/schemas/sitemap/0.9}loc")})
-    if not all(isinstance(u, str) and u.startswith(ORIGIN + "/") for u in urls):
+    # Also notify URLs removed from the sitemap, so their new noindex can be recrawled.
+    changed = {ORIGIN + path for path in ("/", "/fr/legal/", "/en/legal/", "/llms.txt")}
+    candidates = changed | {e.text for e in tree.findall("{http://www.sitemaps.org/schemas/sitemap/0.9}url/{http://www.sitemaps.org/schemas/sitemap/0.9}loc")}
+    if not all(isinstance(u, str) and u.startswith(ORIGIN + "/") for u in candidates):
         raise RuntimeError("Unexpected host in sitemap")
+    urls = sorted(u for u in candidates if isinstance(u, str))
     location = ORIGIN + "/" + keys[0].name
     for attempt in range(6):
         try:
