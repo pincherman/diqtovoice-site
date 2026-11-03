@@ -16,7 +16,5 @@ button:disabled:hover{transform:none}
 .form-note{color:var(--muted)}
 /* Same canvas drawing, rasterized in reduced mode, for the no-JS state. */
 html:not(.motion-ready) .globe{background:url('/motion/globe-still.png') center / contain no-repeat}
-/* The menu remains usable without JavaScript; it becomes a toggle once ready. */
-html:not(.motion-ready) #menu{display:grid!important}
-html:not(.motion-ready) #menu-btn,html:not(.motion-ready) #pause{display:none}
-@media(min-width:881px){html:not(.motion-ready) #menu{display:none!important}}
+/* The no-JS menu fallback is in template.html's noscript element, so a delayed
+   motion script never makes the normal mobile header jump after first paint. */

@@ -88,6 +88,12 @@ const expected = {
   },
 };
 
+test('no-JS mobile menu uses noscript instead of a late motion-ready layout switch', () => {
+  assert.doesNotMatch(read('app/preview.css'), /html:not\(\.motion-ready\) #(?:menu|menu-btn|pause)/);
+  assert.match(template, /<noscript><style>[\s\S]*?#menu\{display:grid!important\}[\s\S]*?<\/style><\/noscript>/);
+  assert.match(template, /id="menu" hidden/);
+});
+
 test('real template removes dead CTAs and veil, preserving menu and pause controls', () => {
   assert.doesNotMatch(template, /<a\b[^>]*class="(?:[^"]* )?btn(?: |")|biz-cta|class="cta"|t050|data-veil|veiled/);
   assert.match(template, /<p class="hero-note"[^>]*>\{\{t025\}\}<\/p>\s*<a class="more" href="#comment">\{\{heroLink\}\}<\/a>/);
