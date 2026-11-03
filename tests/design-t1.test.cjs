@@ -29,6 +29,25 @@ function loadSite() {
   }
   return load;
 }
+test('Next config accepts both admitted shared-cache tsconfig names without changing export mode', () => {
+  for (const [env, expected] of [
+    [{}, 'tsconfig.json'],
+    [{ SITE_TSCONFIG_PATH: '/fixture/tsconfig-alias.json' }, '/fixture/tsconfig-alias.json'],
+    [{ SITE_TYPESCRIPT_CONFIG: '/fixture/tsconfig-current.json' }, '/fixture/tsconfig-current.json'],
+    [{ SITE_TYPESCRIPT_CONFIG: '/fixture/current.json', SITE_TSCONFIG_PATH: '/fixture/alias.json' }, '/fixture/current.json'],
+  ]) {
+    const module = { exports: {} };
+    const { outputText } = ts.transpileModule(read('next.config.ts'), { compilerOptions: {
+      module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022,
+    } });
+    vm.runInNewContext(outputText, { module, exports: module.exports, process: { env } });
+    const config = module.exports.default;
+    assert.equal(config.typescript.tsconfigPath, expected);
+    assert.equal(config.output, 'export');
+    assert.equal(config.trailingSlash, true);
+    assert.equal(config.poweredByHeader, false);
+  }
+});
 const load = loadSite();
 const seo = load(path.join(root, 'lib/site-seo.ts'));
 const { homeCopy } = load(path.join(root, 'lib/launch-copy.ts'));
