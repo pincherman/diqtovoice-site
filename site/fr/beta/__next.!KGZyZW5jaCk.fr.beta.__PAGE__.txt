@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[484,[],"OutletBoundary"]
+3:"$Sreact.suspense"
+0:{"rsc":["$","$1","c",{"children":[["$","main",null,{"className":"wrap beta-page","children":[["$","a",null,{"className":"link","href":"/fr/","children":"Retour à l’accueil"}],["$","h1",null,{"className":"h2","children":"Le lancement se prépare."}],["$","p",null,{"className":"lede","children":"Le téléchargement public et les inscriptions à la liste d’attente ne sont pas encore ouverts. Aucune adresse e-mail n’est demandée sur ce site."}],["$","button",null,{"type":"button","className":"btn big","disabled":true,"aria-describedby":"download-msg","children":"Suivre le lancement"}],["$","p",null,{"id":"download-msg","children":"Téléchargement public et inscriptions pas encore ouverts."}]]}],null,["$","$L2",null,{"children":["$","$3",null,{"name":"Next.MetadataOutlet","children":"$@4"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Rv8l4T2st2M70Bg-gQyWs"}
+4:null

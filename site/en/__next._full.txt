@@ -1,0 +1,161 @@
+1:"$Sreact.fragment"
+2:I[7121,[],""]
+3:I[4581,[],""]
+b:I[7123,[],"default",1]
+:HL["/_next/static/css/2b093ba93aa05b85.css","style"]
+4:T2179,<a class="skip-link" href="#haut">Skip to content</a>
+<header class="site-head">
+  <div class="wrap head">
+    <a class="brand" href="#haut" aria-label="Diqto Voice, home"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 10v4M9.3 7.5v9M12.6 9v6M15.9 6.5v11M19 10.5v3"/></svg></i>Diqto Voice</a>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#disponibilite">Availability</a>
+      <a href="#entreprises">Business</a>
+      <a href="#questions">Questions</a>
+    </nav>
+    <details class="lang">
+      <summary aria-label="Site language: English"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 3.8 5.6 3.8 9s-1.2 6.4-3.8 9c-2.6-2.6-3.8-5.6-3.8-9S9.4 5.6 12 3z"/></svg>English</summary>
+      <ul class="lang-list" data-langs="header"><li lang="fr"><a href="/fr/">Français</a></li><li lang="en"><a href="/en/" aria-current="page">English</a></li></ul>
+    </details>
+    <button type="button" class="icon-btn" id="pause" aria-pressed="false" aria-label="Pause animations" title="Pause animations">
+      <svg class="bars" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12" rx="1"/><rect x="9.5" y="2" width="3.5" height="12" rx="1"/></svg>
+      <svg class="play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg>
+    </button>
+    <a class="btn" href="#disponibilite">Follow the launch</a>
+    <button type="button" class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="menu">Menu</button>
+  </div>
+  <div class="wrap menu" id="menu" hidden>
+    <nav aria-label="Main navigation">
+      <a href="#disponibilite">Availability</a>
+      <a href="#entreprises">Business</a>
+      <a href="#questions">Questions</a>
+    </nav>
+    <p>Site language</p>
+    <ul class="menu-langs" data-langs="menu"><li lang="fr"><a href="/fr/">Français</a></li><li lang="en"><a href="/en/" aria-current="page">English</a></li></ul>
+    <a class="btn big" href="#disponibilite">Follow the launch</a>
+  </div>
+</header>
+
+<main id="haut">
+  <section class="hero" data-scene="wall" aria-labelledby="hook">
+    <canvas aria-hidden="true"></canvas>
+    <div class="wrap">
+      <h1 class="hook" id="hook" data-veil>The language barrier has just <em>fallen</em>.</h1>
+      <div class="hero-cta" data-veil>
+        <a class="btn big" href="#disponibilite">Follow the launch</a>
+        <p class="hero-note" id="download-msg">Coming soon to Windows and Mac. · Teams, Zoom, Google Meet, Webex</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec world" aria-labelledby="t-world">
+    <div class="wrap">
+      <h2 class="h2" id="t-world">Say it once. <span>The world hears it in its own language.</span></h2>
+      <div class="globe" data-scene="globe" role="img" aria-label="Illustration: a sentence spoken in French in Paris travels to New York, Mexico City, São Paulo, Berlin, Milan, Moscow, Mumbai, Ho Chi Minh City, Jakarta, Shanghai, Seoul and Tokyo in each recipient’s language. A reply in Portuguese travels from São Paulo to Paris in French.">
+        <canvas aria-hidden="true"></canvas>
+        <div class="bub src" aria-hidden="true"><span class="bl"></span><span class="bt"></span></div>
+        <div class="bub dst" aria-hidden="true"><span class="bl"></span><span class="bt"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="t-nothing">
+    <div class="wrap">
+      <h2 class="h2" id="t-nothing">The other person installs nothing.</h2>
+      <ol class="dialog" data-scene="dialog">
+        <li><span>You speak French.</span><i aria-hidden="true">→</i><span>They hear you in Japanese.</span></li>
+        <li><span>They reply in Japanese.</span><i aria-hidden="true">→</i><span>You hear them in French.</span></li>
+        <li class="last"><span>They installed nothing.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="t-apps">
+    <div class="wrap">
+      <h2 class="h2" id="t-apps">In the meetings you already have.</h2>
+      <ul class="apps-list">
+        <li>Teams</li>
+        <li>Zoom</li>
+        <li>Google Meet</li>
+        <li>Webex</li>
+      </ul>
+      <p class="apps-os">On Windows and Mac.</p>
+    </div>
+  </section>
+
+  <section class="sec hello" aria-labelledby="t-hello">
+    <div class="wrap">
+      <h2 class="h2" id="t-hello">Everyone speaks their own language. <span>Everyone understands each other.</span></h2>
+      <div class="say" data-scene="hello" aria-hidden="true">
+        <div class="word" dir="auto">Bonjour</div>
+        <div class="lname" dir="auto">Français</div>
+      </div>
+      <ul class="names" aria-label="Illustrated language examples"><li lang="fr" dir="auto">Français</li><li lang="en" dir="auto">English</li><li lang="es" dir="auto">Español</li><li lang="pt" dir="auto">Português</li><li lang="de" dir="auto">Deutsch</li><li lang="it" dir="auto">Italiano</li><li lang="ja" dir="auto">日本語</li><li lang="zh" dir="auto">中文</li><li lang="ko" dir="auto">한국어</li><li lang="ru" dir="auto">Русский</li><li lang="hi" dir="auto">हिन्दी</li><li lang="id" dir="auto">Bahasa Indonesia</li><li lang="vi" dir="auto">Tiếng Việt</li></ul>
+    </div>
+  </section>
+
+  <section class="sec" id="disponibilite" aria-labelledby="t-tarifs">
+    <div class="wrap">
+      <h2 class="h2" id="t-tarifs">Getting ready to launch.</h2>
+      <p class="lede">Diqto Voice will be accompanied by a download journey and guides for each platform.</p>
+      <p class="fine">This website asks for no email address, account or bank card.</p>
+      <p class="fine">There are no sales or sign-up forms on this website at present.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="entreprises" aria-labelledby="t-biz">
+    <div class="wrap biz-grid">
+      <div>
+        <h2 class="h2" id="t-biz">For teams working across borders.</h2>
+        <div class="biz-cta">
+          <button type="button" class="btn ghost big" id="contact" disabled aria-describedby="contact-msg">Talk to the Diqto team</button>
+          <p class="msg" id="contact-msg">Information for teams will be provided before launch.</p>
+        </div>
+      </div>
+      <ul class="biz-points">
+        <li><b>Your meetings</b> with people across borders.</li>
+        <li><b>Windows and Mac</b>: guides tailored to each platform.</li>
+        <li><b>Your team</b>: a use case to prepare together.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec" id="questions" aria-labelledby="t-faq">
+    <div class="wrap faq-grid">
+      <h2 class="h2" id="t-faq">Your questions.</h2>
+      <div class="qa"><details><summary>What is Diqto Voice?</summary><p>Diqto Voice is a voice translation application designed to let you speak your language and hear the other person in your language during meetings.</p></details><details><summary>Does the other person need to install anything?</summary><p>No. Diqto Voice runs on your side: the other person stays in their usual meeting application.</p></details><details><summary>Which applications are featured?</summary><p>Teams, Zoom, Google Meet and Webex, on Windows and Mac. The guides will explain the settings for each platform.</p></details><details><summary>Can I download or buy Diqto Voice here?</summary><p>Not yet. This website introduces the product; public downloads, sign-ups and purchases are not open. No payment or personal information is requested.</p></details><details><summary>Who is behind Diqto Voice?</summary><p>DIQTO SAS, a French company based in Marseille. Its legal details are in the legal notice.</p></details></div>
+    </div>
+  </section>
+
+  <section class="finale" aria-labelledby="t-slogan">
+    <div class="wrap">
+      <h2 class="slogan" id="t-slogan">Your voice has no more <span>borders</span>.</h2>
+      <div class="cta"><a class="btn big" href="#disponibilite">Follow the launch</a></div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-grid">
+    <a class="brand" href="#haut"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 10v4M9.3 7.5v9M12.6 9v6M15.9 6.5v11M19 10.5v3"/></svg></i>Diqto Voice</a>
+    <ul class="foot-langs" data-langs="footer" aria-label="Site languages"><li lang="fr"><a href="/fr/">Français</a></li><li lang="en"><a href="/en/" aria-current="page">English</a></li></ul>
+    <div class="foot-bottom">
+      <p><a href="/en/legal/">Legal notice</a> · <a href="/en/privacy/">Privacy</a></p>
+      <p>© 2026 DIQTO SAS</p>
+    </div>
+  </div>
+</footer>
+0:{"P":null,"c":["","en",""],"q":"","i":false,"f":[[["",{"children":["(english)",{"children":["en",{"children":["__PAGE__",{}]},"$undefined","$undefined",16]}]}],[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":"$0:f:0:1:0:props:children:1:props:notFound:0:1:props:style","children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":"$0:f:0:1:0:props:children:1:props:notFound:0:1:props:children:props:children:1:props:style","children":404}],["$","div",null,{"style":"$0:f:0:1:0:props:children:1:props:notFound:0:1:props:children:props:children:2:props:style","children":["$","h2",null,{"style":"$0:f:0:1:0:props:children:1:props:notFound:0:1:props:children:props:children:2:props:children:props:style","children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/2b093ba93aa05b85.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":[["$","head",null,{"children":[["$","link",null,{"rel":"icon","href":"/favicon.svg","type":"image/svg+xml"}],["$","meta",null,{"httpEquiv":"Content-Security-Policy","content":"default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; form-action 'none'; base-uri 'self'; object-src 'none'"}]]}],["$","body",null,{"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]}]]}]]}],{"children":[["$","$1","c",{"children":[[["$","div",null,{"suppressHydrationWarning":true,"dangerouslySetInnerHTML":{"__html":"$4"}}],"$L5","$L6","$L7"],null,"$L8"]}],{},null,false,null]},null,false,null]},null,false,"$@9"]},null,false,"$@9"],"$La",false]],"m":"$undefined","G":["$b",[]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"Rv8l4T2st2M70Bg-gQyWs"}
+e:I[484,[],"OutletBoundary"]
+f:"$Sreact.suspense"
+12:I[484,[],"ViewportBoundary"]
+14:I[484,[],"MetadataBoundary"]
+c:T802,{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://diqtovoice.com/#organization","name":"DIQTO","legalName":"DIQTO SAS","identifier":{"@type":"PropertyValue","propertyID":"SIREN","value":"106 569 619"},"url":"https://diqtovoice.com","address":{"@type":"PostalAddress","addressLocality":"Marseille","addressCountry":"FR"}},{"@type":"SoftwareApplication","@id":"https://diqtovoice.com/#software","name":"Diqto Voice","applicationCategory":"CommunicationApplication","operatingSystem":["macOS","Windows"],"description":"Speak your language and understand the other person. Discover Diqto Voice, voice translation for meetings on Windows and Mac. Getting ready to launch.","inLanguage":"en","url":"https://diqtovoice.com/en/","publisher":{"@id":"https://diqtovoice.com/#organization"}},{"@type":"FAQPage","@id":"https://diqtovoice.com/en/#questions","inLanguage":"en","mainEntity":[{"@type":"Question","name":"What is Diqto Voice?","acceptedAnswer":{"@type":"Answer","text":"Diqto Voice is a voice translation application designed to let you speak your language and hear the other person in your language during meetings."}},{"@type":"Question","name":"Does the other person need to install anything?","acceptedAnswer":{"@type":"Answer","text":"No. Diqto Voice runs on your side: the other person stays in their usual meeting application."}},{"@type":"Question","name":"Which applications are featured?","acceptedAnswer":{"@type":"Answer","text":"Teams, Zoom, Google Meet and Webex, on Windows and Mac. The guides will explain the settings for each platform."}},{"@type":"Question","name":"Can I download or buy Diqto Voice here?","acceptedAnswer":{"@type":"Answer","text":"Not yet. This website introduces the product; public downloads, sign-ups and purchases are not open. No payment or personal information is requested."}},{"@type":"Question","name":"Who is behind Diqto Voice?","acceptedAnswer":{"@type":"Answer","text":"DIQTO SAS, a French company based in Marseille. Its legal details are in the legal notice."}}]}]}5:["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$c"}}]
+d:T15ac,{"TARIFS":[],"LANGS":[["fr","Français","Pardon ?","Bonjour"],["en","English","Sorry?","Hello"],["es","Español","¿Perdón?","Hola"],["pt","Português","Como?","Olá"],["de","Deutsch","Wie bitte?","Hallo"],["it","Italiano","Come, scusi?","Ciao"],["ja","日本語","何ですか？","こんにちは"],["zh","中文","你说什么？","你好"],["ko","한국어","뭐라고요?","안녕하세요"],["ru","Русский","Простите?","Здравствуйте"],["hi","हिन्दी","क्या कहा?","नमस्ते"],["id","Bahasa Indonesia","Maaf, apa?","Halo"],["vi","Tiếng Việt","Xin lỗi, gì cơ?","Xin chào"]],"SENT":["Français","Bonjour à tous, on peut commencer."],"CITIES":[["Berlin",13.4,52.52,"Deutsch","Hallo zusammen, wir können anfangen."],["Milan",9.19,45.46,"Italiano","Ciao a tutti, possiamo cominciare."],["Moscow",37.62,55.75,"Русский","Всем привет, можем начинать."],["Mumbai",72.88,19.08,"हिन्दी","सभी को नमस्ते, हम शुरू कर सकते हैं।"],["Ho Chi Minh City",106.66,10.76,"Tiếng Việt","Xin chào mọi người, chúng ta bắt đầu nhé."],["Jakarta",106.85,-6.21,"Bahasa Indonesia","Halo semuanya, kita bisa mulai."],["Shanghai",121.47,31.23,"中文","大家好，我们可以开始了。"],["Seoul",126.98,37.57,"한국어","안녕하세요 여러분, 시작하겠습니다."],["Tokyo",139.69,35.69,"日本語","皆さん、こんにちは。始めましょう。"],["New York",-74,40.71,"English","Hello everyone, we can get started."],["Mexico City",-99.13,19.43,"Español","Hola a todos, podemos empezar."],["São Paulo",-46.63,-23.55,"Português","Olá a todos, podemos começar."]],"REPLY":{"fromIndex":11,"say":["Português","Sim, vamos começar."],"hear":["Français","Oui, on commence."]},"originName":"Paris","WALL":{"source":{"author":"Claude","decision":"Philippe — mur mélangé, 01/11/2026 soir","scope":"Seul delta admis à la maquette source-tarifs-20261101T1911Z.html ; même mur multilingue pour toutes les pages."},"languages":["fr","en","es","pt","de","it","ja","zh","ko","ru","hi","id","vi"],"PARDON":["Pardon ?","Sorry?","¿Perdón?","Como?","Wie bitte?","Come, scusi?","何ですか？","你说什么？","뭐라고요?","Простите?","क्या कहा?","Maaf, apa?","Xin lỗi, gì cơ?"],"COMPRENDS":["Je ne comprends pas","I don't understand","No entiendo","Não entendo","Ich verstehe nicht","Non capisco","わかりません","我听不懂","못 알아듣겠어요","Я не понимаю","मुझे समझ नहीं आया","Saya tidak mengerti","Tôi không hiểu"],"REPETER":["Vous pouvez répéter ?","Could you repeat that?","¿Puede repetir?","Pode repetir?","Noch einmal, bitte?","Può ripetere?","もう一度お願いします","请再说一遍","다시 말씀해 주세요","Повторите, пожалуйста","फिर से कहिए?","Bisa diulang?","Nói lại được không?"],"LENTEMENT":["Plus lentement…","Slower, please","Más despacio","Mais devagar","Langsamer, bitte","Più piano","ゆっくりお願いします","请说慢一点","천천히 말씀해 주세요","Помедленнее","धीरे बोलिए","Pelan-pelan","Nói chậm thôi"],"reviews":{"fr":{"reviewer":null,"status":"EN_ATTENTE_RELECTEUR_DISTINCT","scope":"Les quatre phrases ; naturel à l’oral et longueur courte."},"en":{"reviewer":null,"status":"EN_ATTENTE_RELECTEUR_DISTINCT","scope":"Les quatre phrases ; naturel à l’oral et longueur courte."},"es":{"reviewer":null,"status":"EN_ATTENTE_RELECTEUR_DISTINCT","scope":"Les quatre phrases ; naturel à l’oral et longueur courte."},"pt":{"reviewer":null,"status":"EN_ATTENTE_RELECTEUR_DISTINCT","scope":"Les quatre phrases ; naturel à l’oral et longueur courte."},"de":{"reviewer":null,"status":"EN_ATTENTE_RELECTEUR_DISTINCT","scope":"Les quatre phrases ; naturel à l’oral et longueur courte."},"it":{"reviewer":null,"status":"EN_ATTENTE_RELECTEUR_DISTINCT","scope":"Les quatre phrases ; naturel à l’oral et longueur courte."},"ja":{"reviewer":null,"status":"EN_ATTENTE_RELECTEUR_DISTINCT","scope":"Les quatre phrases ; naturel à l’oral et longueur courte."},"zh":{"reviewer":null,"status":"EN_ATTENTE_RELECTEUR_DISTINCT","scope":"Les quatre phrases ; naturel à l’oral et longueur courte."},"ko":{"reviewer":null,"status":"EN_ATTENTE_RELECTEUR_DISTINCT","scope":"Les quatre phrases ; naturel à l’oral et longueur courte."},"ru":{"reviewer":null,"status":"EN_ATTENTE_RELECTEUR_DISTINCT","scope":"Les quatre phrases ; naturel à l’oral et longueur courte."},"hi":{"reviewer":null,"status":"EN_ATTENTE_RELECTEUR_DISTINCT","scope":"Les quatre phrases ; naturel à l’oral et longueur courte."},"id":{"reviewer":null,"status":"EN_ATTENTE_RELECTEUR_DISTINCT","scope":"Les quatre phrases ; naturel à l’oral et longueur courte."},"vi":{"reviewer":null,"status":"EN_ATTENTE_RELECTEUR_DISTINCT","scope":"Les quatre phrases ; naturel à l’oral et longueur courte."}}},"ui":{"pause":"Pause animations","resume":"Resume animations","menu":"Menu","close":"Close","pendingLanguage":"Content in preparation","inactivePurchase":"Public downloads and waiting-list sign-ups are not open yet. This website does not ask for your email address.","inactiveContact":"Public downloads and waiting-list sign-ups are not open yet. This website does not ask for your email address.","reduced":"Animations are disabled by your reduced-motion preference."}}6:["$","script",null,{"id":"home-corpus","type":"application/json","dangerouslySetInnerHTML":{"__html":"$d"}}]
+7:["$","script",null,{"src":"/motion/home.js","defer":true}]
+8:["$","$Le",null,{"children":["$","$f",null,{"name":"Next.MetadataOutlet","children":"$@10"}]}]
+11:[]
+9:"$W11"
+a:["$","$1","h",{"children":[null,["$","$L12",null,{"children":"$L13"}],["$","div",null,{"hidden":true,"children":["$","$L14",null,{"children":["$","$f",null,{"name":"Next.Metadata","children":"$L15"}]}]}],null]}]
+13:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+10:null
+15:[["$","title","0",{"children":"Diqto Voice | Voice translation for your meetings"}],["$","meta","1",{"name":"description","content":"Speak your language and understand the other person. Discover Diqto Voice, voice translation for meetings on Windows and Mac. Getting ready to launch."}],["$","meta","2",{"name":"robots","content":"index, follow"}],["$","link","3",{"rel":"canonical","href":"https://diqtovoice.com/en/"}],["$","link","4",{"rel":"alternate","hrefLang":"fr","href":"https://diqtovoice.com/fr/"}],["$","link","5",{"rel":"alternate","hrefLang":"en","href":"https://diqtovoice.com/en/"}],["$","link","6",{"rel":"alternate","hrefLang":"x-default","href":"https://diqtovoice.com/"}],["$","meta","7",{"property":"og:title","content":"Diqto Voice | Voice translation for your meetings"}],["$","meta","8",{"property":"og:description","content":"Speak your language and understand the other person. Discover Diqto Voice, voice translation for meetings on Windows and Mac. Getting ready to launch."}],["$","meta","9",{"property":"og:url","content":"https://diqtovoice.com/en/"}],["$","meta","10",{"property":"og:site_name","content":"Diqto Voice"}],["$","meta","11",{"property":"og:locale","content":"en_US"}],["$","meta","12",{"property":"og:image","content":"https://diqtovoice.com/motion/globe-still.png"}],["$","meta","13",{"property":"og:image:alt","content":"Diqto Voice"}],["$","meta","14",{"property":"og:locale:alternate","content":"fr_FR"}],["$","meta","15",{"property":"og:type","content":"website"}],["$","meta","16",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","17",{"name":"twitter:title","content":"Diqto Voice | Voice translation for your meetings"}],["$","meta","18",{"name":"twitter:description","content":"Speak your language and understand the other person. Discover Diqto Voice, voice translation for meetings on Windows and Mac. Getting ready to launch."}],["$","meta","19",{"name":"twitter:image","content":"https://diqtovoice.com/motion/globe-still.png"}]]
