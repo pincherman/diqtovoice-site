@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[376,[],"OutletBoundary"]
+3:"$Sreact.suspense"
+0:{"rsc":["$","$1","c",{"children":[["$","main",null,{"className":"wrap beta-page","children":[["$","a",null,{"className":"link","href":"/en/","children":"Back to home"}],["$","h1",null,{"className":"h2","children":"Getting ready to launch."}],["$","p",null,{"className":"lede","children":"Public downloads and waiting-list sign-ups are not open yet. This website does not ask for your email address."}],["$","button",null,{"type":"button","className":"btn big","disabled":true,"aria-describedby":"download-msg","children":"Follow the launch"}],["$","p",null,{"id":"download-msg","children":"Public downloads and sign-ups are not open yet."}]]}],null,["$","$L2",null,{"children":["$","$3",null,{"name":"Next.MetadataOutlet","children":"$@4"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"8TtXXb0B9hbCpFDXaFac-"}
+4:null
