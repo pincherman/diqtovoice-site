@@ -15,7 +15,6 @@
       <svg class="bars" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12" rx="1"/><rect x="9.5" y="2" width="3.5" height="12" rx="1"/></svg>
       <svg class="play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg>
     </button>
-    <a class="btn" href="#disponibilite">{{t012}}</a>
     <button type="button" class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="menu">{{t013}}</button>
   </div>
   <div class="wrap menu" id="menu" hidden>
@@ -26,7 +25,6 @@
     </nav>
     <p>{{t018}}</p>
     <ul class="menu-langs" data-langs="menu">{{LANGUAGES}}</ul>
-    <a class="btn big" href="#disponibilite">{{t019}}</a>
   </div>
 </header>
 
@@ -34,10 +32,10 @@
   <section class="hero" data-scene="wall" aria-labelledby="hook">
     <canvas aria-hidden="true"></canvas>
     <div class="wrap">
-      <h1 class="hook" id="hook" data-veil>{{t020}}<em>{{t021}}</em>{{t022}}</h1>
-      <div class="hero-cta" data-veil>
-        <a class="btn big" href="#disponibilite">{{t023}}</a>
+      <h1 class="hook" id="hook">{{t020}}<em>{{t021}}</em>{{t022}}</h1>
+      <div class="hero-cta">
         <p class="hero-note" id="download-msg">{{t025}}</p>
+        <a class="more" href="#comment">{{heroLink}}</a>
       </div>
     </div>
   </section>
@@ -53,7 +51,7 @@
     </div>
   </section>
 
-  <section class="sec" aria-labelledby="t-nothing">
+  <section class="sec" id="comment" aria-labelledby="t-nothing">
     <div class="wrap">
       <h2 class="h2" id="t-nothing">{{t029}}</h2>
       <ol class="dialog" data-scene="dialog">
@@ -93,7 +91,6 @@
       <h2 class="h2" id="t-tarifs">{{t048}}</h2>
       <p class="lede">{{t049}}</p>
       <p class="fine">{{t077}}</p>
-      <p class="fine">{{t050}}</p>
     </div>
   </section>
 
@@ -101,10 +98,6 @@
     <div class="wrap biz-grid">
       <div>
         <h2 class="h2" id="t-biz">{{t051}}</h2>
-        <div class="biz-cta">
-          <button type="button" class="btn ghost big" id="contact" disabled aria-describedby="contact-msg">{{t052}}</button>
-          <p class="msg" id="contact-msg">{{t053}}</p>
-        </div>
       </div>
       <ul class="biz-points">
         <li><b>{{t054}}</b>{{t055}}</li>
@@ -124,7 +117,7 @@
   <section class="finale" aria-labelledby="t-slogan">
     <div class="wrap">
       <h2 class="slogan" id="t-slogan">{{t061}}<span>{{t062}}</span>{{t063}}</h2>
-      <div class="cta"><a class="btn big" href="#disponibilite">{{t064}}</a></div>
+      <p class="finale-note">{{finaleNote}}</p>
     </div>
   </section>
 </main>

@@ -1,11 +1,4 @@
-/* Explicit integration adapters; Claude's CSS remains byte-identical. */
-@font-face{font-family:'Work Sans';font-style:normal;font-weight:100 900;font-display:swap;src:url('/fonts/WorkSans.ttf') format('truetype')}
-@font-face{font-family:'Diqto Cyrillic';font-style:normal;font-weight:400 800;font-display:swap;src:url('/fonts/noto-sans-cyrillic-wght-400-800.woff2') format('woff2')}
-@font-face{font-family:'Diqto Devanagari';font-style:normal;font-weight:400 800;font-display:swap;src:url('/fonts/noto-sans-devanagari-wght-400-800.woff2') format('woff2')}
-@font-face{font-family:'Diqto Japanese';font-style:normal;font-weight:400 800;font-display:swap;src:url('/fonts/noto-sans-jp-essai-wght-400-800.woff2') format('woff2')}
-@font-face{font-family:'Diqto Korean';font-style:normal;font-weight:400 800;font-display:swap;src:url('/fonts/noto-sans-kr-essai-wght-400-800.woff2') format('woff2')}
-@font-face{font-family:'Diqto Chinese';font-style:normal;font-weight:400 800;font-display:swap;src:url('/fonts/noto-sans-sc-essai-wght-400-800.woff2') format('woff2')}
-:root{--font:'Work Sans','Diqto Cyrillic','Diqto Devanagari','Diqto Japanese','Diqto Korean','Diqto Chinese',system-ui,sans-serif}
+/* Accessibility and no-JS adapters; system typography is defined in maquette.css. */
 .skip-link{position:fixed;top:8px;left:16px;z-index:50;padding:12px;background:var(--green);color:var(--night);transform:translateY(-200%)}
 .skip-link:focus{transform:none}
 .lang-list a,.menu-langs a,.foot-langs a{color:inherit;text-decoration:none}

@@ -9,6 +9,5 @@ export default function robots(): MetadataRoute.Robots {
       ...aiAgents.map(userAgent => ({ userAgent, allow: '/', disallow: ['/fr/legal/', '/en/legal/'] })),
     ],
     sitemap: 'https://diqtovoice.com/sitemap.xml',
-    host: 'https://diqtovoice.com',
   };
 }

@@ -7,7 +7,7 @@
   let reduce = motionPreference.matches;
   const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
   const C = { night: css("--night"), n2: css("--night-2"), n3: css("--night-3"), ink: css("--ink"), muted: css("--muted"), faint: css("--faint"), line: css("--line"), green: css("--green"), soft: css("--green-soft") };
-  const FONT = css("--font");
+  const FONT = css("--font") || '-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif';
   const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
   const ease = t => 1 - Math.pow(1 - clamp(t, 0, 1), 3);
   const fit = cv => {
@@ -45,7 +45,6 @@
   /* ---------- 1. Le mur multilingue mélangé, commun à toutes les pages ---------- */
   const wall = (() => {
     const host = document.querySelector('[data-scene="wall"]'), cv = host.querySelector("canvas");
-    const veils = host.querySelectorAll("[data-veil]");
     let g, bricks = [], t = 0, revealed = false, done = false, rowH, fs;
     const WORDS = WALL.PARDON.flatMap((p, i) => [p, WALL.COMPRENDS.at(i), WALL.REPETER.at(i), WALL.LENTEMENT.at(i)]);
     const build = () => {
@@ -83,18 +82,18 @@
         ctx.translate(b.x + b.w / 2, y + b.h / 2); ctx.rotate(b.rot);
         const inset = 3, rw = b.w - inset * 2, rh = b.h - inset * 2;
         ctx.beginPath(); ctx.roundRect(-rw / 2, -rh / 2, rw, rh, 8);
-        ctx.fillStyle = b.flash > 0 ? mix(C.n3, C.green, b.flash) : C.n2; ctx.fill();
-        ctx.strokeStyle = b.flash > 0 ? C.green : C.line; ctx.lineWidth = 1; ctx.stroke();
+        ctx.fillStyle = b.flash > 0 ? mix(C.n3, C.ink, b.flash * 0.85) : C.n2; ctx.fill();
+        ctx.strokeStyle = b.flash > 0 ? C.ink : C.n2; ctx.lineWidth = 1; ctx.stroke();
         ctx.fillStyle = b.flash > 0.4 ? C.night : C.muted; ctx.fillText(b.word, 0, 1);
         ctx.restore();
       }
       if (waving && waveX < W * 1.25) {
         const grad = ctx.createLinearGradient(waveX - 180, 0, waveX + 40, 0);
-        grad.addColorStop(0, "rgba(37,211,102,0)"); grad.addColorStop(0.8, "rgba(37,211,102,.28)"); grad.addColorStop(1, "rgba(37,211,102,0)");
+        grad.addColorStop(0, "rgba(255,255,255,0)"); grad.addColorStop(0.8, "rgba(255,255,255,.10)"); grad.addColorStop(1, "rgba(255,255,255,0)");
         ctx.fillStyle = grad; ctx.fillRect(waveX - 180, 0, 220, H);
         ctx.beginPath();
         for (let y = 0; y <= H; y += 6) ctx.lineTo(waveX + Math.sin(y * 0.045 + t * 18) * 10 * Math.sin(y / H * Math.PI), y);
-        ctx.strokeStyle = C.green; ctx.lineWidth = 2.5; ctx.shadowColor = C.green; ctx.shadowBlur = 18; ctx.stroke(); ctx.shadowBlur = 0;
+        ctx.strokeStyle = "rgba(255,255,255,.6)"; ctx.lineWidth = 1.25; ctx.stroke();
       }
       return { waveX, waving, alive };
     };
@@ -113,13 +112,12 @@
           if (b.y > g.H + 40 || b.x > g.W + 60) b.a = 0; else b.a = Math.max(0, b.a - dt * 0.35);
         }
       }
-      if (waving && !revealed && waveX > g.W * 0.3) { revealed = true; veils.forEach(v => v.classList.remove("veiled")); }
+      if (waving && !revealed && waveX > g.W * 0.3) revealed = true;
       if (revealed && alive === 0) { done = true; s.finished = true; g.ctx.clearRect(0, 0, g.W, g.H); }
     };
     const s = { update, resize() { if (!done && !reduce) { build(); draw(); } }, still() {
       done = true; s.finished = true;
       if (g) g.ctx.clearRect(0, 0, g.W, g.H);
-      veils.forEach(v => v.classList.remove("veiled"));
     } };
     if (reduce) { s.still(); watch(host, s); return s; }
     build(); watch(host, s);
@@ -182,7 +180,7 @@
     const frame = () => {
       const { ctx, W, H } = g; ctx.clearRect(0, 0, W, H); basis();
       const halo = ctx.createRadialGradient(cx, cy, R * 0.9, cx, cy, R * 1.25);
-      halo.addColorStop(0, "rgba(37,211,102,.14)"); halo.addColorStop(1, "rgba(37,211,102,0)");
+      halo.addColorStop(0, "rgba(37,211,102,0)"); halo.addColorStop(1, "rgba(37,211,102,0)");
       ctx.fillStyle = halo; ctx.fillRect(0, 0, W, H);
       ctx.beginPath(); ctx.arc(cx, cy, R, 0, 7); ctx.fillStyle = C.n2; ctx.fill();
       ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.stroke();
@@ -218,7 +216,7 @@
           const s = phase === "fly" ? ease((lt - T_TURN) / T_FLY) : 1;
           drawArc(PARIS.v, active.v, Math.max(0, s - 0.45), s, C.green, 1, 2.6);
           const h = arcPt(PARIS.v, active.v, s);
-          if (seen(h)) { g.ctx.beginPath(); g.ctx.arc(h.x, h.y, 4.5, 0, 7); g.ctx.fillStyle = C.soft; g.ctx.shadowColor = C.green; g.ctx.shadowBlur = 16; g.ctx.fill(); g.ctx.shadowBlur = 0; }
+          if (seen(h)) { g.ctx.beginPath(); g.ctx.arc(h.x, h.y, 4.5, 0, 7); g.ctx.fillStyle = C.soft; g.ctx.fill(); }
           fill(src, SENT); place(src, P, [-dir[0], -dir[1]]); srcOn = true;
         }
         if (phase === "land") {

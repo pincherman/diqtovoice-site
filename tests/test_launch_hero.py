@@ -43,13 +43,13 @@ class Hero(HTMLParser):
 class LaunchHero(unittest.TestCase):
     def test_one_positive_platform_note_per_locale(self):
         for locale, expected in [
-            ('fr', 'Bientôt sur Windows et Mac.'),
-            ('en', 'Coming soon to Windows and Mac.'),
+            ('fr', 'Bientôt sur Windows et Mac, pour Teams, Zoom, Google Meet et Webex.'),
+            ('en', 'Coming soon to Windows and Mac, for Teams, Zoom, Google Meet and Webex.'),
         ]:
             with self.subTest(locale=locale):
                 hero = Hero((ROOT / 'out' / locale / 'index.html').read_text())
                 self.assertEqual(len(hero.notes), 1)
-                self.assertTrue(hero.notes[0].startswith(expected), hero.notes)
+                self.assertEqual(hero.notes[0], expected)
                 self.assertEqual(hero.notes[0].count('Windows'), 1)
                 self.assertEqual(hero.notes[0].count('Mac'), 1)
                 for app in ['Teams', 'Zoom', 'Google Meet', 'Webex']:
@@ -57,13 +57,13 @@ class LaunchHero(unittest.TestCase):
                 self.assertNotIn('pas encore ouverts', hero.notes[0])
                 self.assertNotIn('not open yet', hero.notes[0])
 
-    def test_only_the_primary_launch_link_remains(self):
+    def test_only_the_honest_how_it_works_link_remains(self):
         for locale in ['fr', 'en']:
             with self.subTest(locale=locale):
                 hero = Hero((ROOT / 'out' / locale / 'index.html').read_text())
                 self.assertEqual(len(hero.links), 1)
-                self.assertEqual(hero.links[0]['href'], '#disponibilite')
-                self.assertIn('btn', hero.links[0]['class'].split())
+                self.assertEqual(hero.links[0]['href'], '#comment')
+                self.assertIn('more', hero.links[0]['class'].split())
 
 
 if __name__ == '__main__':

@@ -49,16 +49,16 @@
     "t024": "Voir les tarifs",
     "t025": "Windows et Mac · Teams, Zoom, Google Meet, Webex",
     "t026": "Dites-le une fois. ",
-    "t027": "Le monde l'entend dans sa langue.",
+    "t027": "Le monde l’entend dans sa langue.",
     "t028": "Globe animé : une phrase dite en français à Paris part vers New York, Mexico, São Paulo, Berlin, Milan, Moscou, Mumbai, Hô Chi Minh-Ville, Jakarta, Shanghai, Séoul et Tokyo, où chacun la reçoit dans sa langue. Une réponse en portugais revient de São Paulo et arrive à Paris en français.",
-    "t029": "Votre interlocuteur n'installe rien.",
+    "t029": "Votre interlocuteur n’installe rien.",
     "t030": "Vous parlez français.",
     "t031": "→",
     "t032": "Il vous entend en japonais.",
     "t033": "Il répond en japonais.",
     "t034": "→",
-    "t035": "Vous l'entendez en français.",
-    "t036": "Il n'a rien installé.",
+    "t035": "Vous l’entendez en français.",
+    "t036": "Il n’a rien installé.",
     "t037": "Dans les réunions que vous faites déjà.",
     "t038": "Teams",
     "t039": "Zoom",
@@ -70,20 +70,20 @@
     "t045": "Bonjour",
     "t046": "Français",
     "t047": "Exemples de langues illustrées",
-    "t048": "Un prix simple : l'heure de réunion.",
+    "t048": "Un prix simple : l’heure de réunion.",
     "t049": "Une heure, c’est une heure de traduction allumée, silences inclus. Une heure dans les deux sens compte une seule fois.",
     "t050": "Prix TTC pour la France (TVA 20 %). Entreprises : prix hors taxes, TVA selon votre pays. Tarifs de lancement.",
-    "t051": "Pour les équipes qui travaillent avec l'étranger.",
-    "t052": "Parler à l'équipe Diqto",
+    "t051": "Pour les équipes qui travaillent avec l’étranger.",
+    "t052": "Parler à l’équipe Diqto",
     "t053": "Contact non activé dans cet aperçu privé.",
     "t054": "Une facture",
-    "t055": " pour toute l'équipe.",
+    "t055": " pour toute l’équipe.",
     "t056": "Les heures se partagent",
     "t057": " entre les postes.",
     "t058": "Un pilote accompagné",
     "t059": " sur vos vraies réunions.",
     "t060": "Vos questions.",
-    "t061": "Votre voix n'a plus de ",
+    "t061": "Votre voix n’a plus de ",
     "t062": "frontières",
     "t063": ".",
     "t064": "Essayer gratuitement",
@@ -150,7 +150,7 @@
         "ht": "",
         "points": [
           "Plusieurs postes, une seule facture",
-          "Heures partagées dans l'équipe",
+          "Heures partagées dans l’équipe",
           "Pilote accompagné"
         ],
         "bouton": "Nous écrire",
@@ -343,7 +343,7 @@
   },
   "FAQ": [
     {
-      "question": "Qu'est-ce qu'une heure ?",
+      "question": "Qu’est-ce qu’une heure ?",
       "answer": "Le temps où la traduction est allumée, silences inclus. Une heure dans les deux sens compte pour une heure, pas deux."
     },
     {
@@ -355,16 +355,16 @@
       "answer": "Teams, Zoom, Google Meet et Webex, sur Windows et sur Mac."
     },
     {
-      "question": "Et si j'utilise toutes mes heures ?",
-      "answer": "Diqto Voice vous prévient. Vous ajoutez des heures ou vous attendez le mois suivant. Rien n'est facturé sans votre accord."
+      "question": "Et si j’utilise toutes mes heures ?",
+      "answer": "Diqto Voice vous prévient. Vous ajoutez des heures ou vous attendez le mois suivant. Rien n’est facturé sans votre accord."
     },
     {
       "question": "Je suis une entreprise : quel prix ?",
-      "answer": "Le prix hors taxes : 29 € pour Essentiel, 79 € pour Pro, 9 € l'heure en plus. La TVA s'ajoute selon votre pays. Une entreprise d'un autre pays de l'Union européenne qui a un numéro de TVA la déclare elle-même."
+      "answer": "Le prix hors taxes : 29 € pour Essentiel, 79 € pour Pro, 9 € l’heure en plus. La TVA s’ajoute selon votre pays. Une entreprise d’un autre pays de l’Union européenne qui a un numéro de TVA la déclare elle-même."
     },
     {
       "question": "Puis-je arrêter quand je veux ?",
-      "answer": "Oui, l'abonnement est sans engagement."
+      "answer": "Oui, l’abonnement est sans engagement."
     },
     {
       "question": "Qui est derrière Diqto Voice ?",
