@@ -1,59 +1,80 @@
-name: Deploy Diqto Voice site
+name: Deploy Diqto Voice frozen export
 
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
+    inputs:
+      payload_sha:
+        description: Immutable data-only export commit (40 hex)
+        required: true
+        type: string
+      manifest_sha256:
+        description: Reviewed manifest SHA-256 (64 hex)
+        required: true
+        type: string
+      source_sha:
+        description: Reviewed source commit (40 hex)
+        required: true
+        type: string
+      file_count:
+        description: Exact reviewed file count
+        required: true
+        type: string
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
   group: pages
   cancel-in-progress: false
 
 jobs:
-  build:
+  upload:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout reviewed transport
         uses: actions/checkout@v4
-      - name: Setup Node
-        uses: actions/setup-node@v4
         with:
-          node-version: 22
-          cache: npm
-      - name: Install dependencies
-        run: npm ci
-      - name: Build static site
-        run: npm run build
-      - name: Upload Pages artifact
+          persist-credentials: false
+      - name: Validate immutable inputs before checkout
+        env:
+          PAYLOAD: ${{ inputs.payload_sha }}
+          SOURCE: ${{ inputs.source_sha }}
+          MANIFEST: ${{ inputs.manifest_sha256 }}
+          COUNT: ${{ inputs.file_count }}
+        run: |
+          python3 - <<'PY'
+          import os, re
+          for name, pattern in [('PAYLOAD', r'[a-f0-9]{40}'), ('SOURCE', r'[a-f0-9]{40}'), ('MANIFEST', r'[a-f0-9]{64}'), ('COUNT', r'[1-9][0-9]*')]:
+              assert re.fullmatch(pattern, os.environ[name]), 'Invalid frozen-export input: ' + name
+          PY
+      - name: Checkout frozen bytes (never build)
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.payload_sha }}
+          path: payload
+          persist-credentials: false
+      - name: Verify complete manifest immediately before upload
+        env:
+          SOURCE: ${{ inputs.source_sha }}
+          MANIFEST: ${{ inputs.manifest_sha256 }}
+          COUNT: ${{ inputs.file_count }}
+        run: python3 scripts/frozen-export.py payload/site payload/manifest.json "$MANIFEST" "$SOURCE" "$COUNT"
+      - name: Upload exact Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./out
-
+          path: payload/site
+          retention-days: 1
   deploy:
-    needs: build
+    needs: upload
     runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Checkout notification script
-        uses: actions/checkout@v4
-      - name: Download published artifact for sitemap
-        uses: actions/download-artifact@v4
-        with:
-          name: github-pages
-          path: .pages-artifact
-      - name: Read published sitemap
-        run: |
-          mkdir -p out
-          tar -xf .pages-artifact/artifact.tar -C out ./sitemap.xml
-      - name: Deploy to GitHub Pages
+      - name: Deploy verified frozen export
         id: deployment
         uses: actions/deploy-pages@v4
-      - name: Notify IndexNow after publication
-        run: python3 scripts/submit-indexnow.py
+# IndexNow is deliberately separate: public readback must pass first, then changed URLs only.
