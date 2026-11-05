@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --hostname 127.0.0.1",
-    "build": "next build --webpack",
+    "build": "next build --webpack && node scripts/prune-legal-text.cjs",
     "start": "next start --hostname 127.0.0.1"
   },
   "dependencies": {

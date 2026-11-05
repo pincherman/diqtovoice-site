@@ -6,7 +6,7 @@ const availability = {
     label: 'Suivre le lancement', title: 'Le lancement se prépare.',
     notice: 'Le téléchargement public et les inscriptions à la liste d’attente ne sont pas encore ouverts. Aucune adresse e-mail n’est demandée sur ce site.',
     faq: [
-      { question: 'À quoi sert Diqto Voice ?', answer: 'Diqto Voice est une application de traduction vocale pour parler votre langue et entendre celle de votre interlocuteur dans vos réunions.' },
+      { question: 'À quoi sert Diqto Voice ?', answer: 'Diqto Voice est une application de traduction vocale pour vos réunions : vous parlez votre langue, et vous entendez votre interlocuteur dans la vôtre.' },
       { question: 'Mon interlocuteur doit-il installer quelque chose ?', answer: 'Non. Diqto Voice s’utilise de votre côté : votre interlocuteur reste dans son application de réunion habituelle.' },
       { question: 'Quelles applications sont présentées ?', answer: 'Teams, Zoom, Google Meet et Webex, sur Windows et Mac. Les guides préciseront les réglages propres à chaque plateforme.' },
       { question: 'Puis-je télécharger ou acheter Diqto Voice ici ?', answer: 'Pas encore. Ce site présente le produit ; le téléchargement public, les inscriptions et l’achat ne sont pas ouverts. Aucun paiement ni renseignement personnel ne sont demandés.' },

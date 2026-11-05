@@ -8,7 +8,6 @@ import subprocess
 import unicodedata
 import unittest
 from urllib.parse import unquote
-from urllib.robotparser import RobotFileParser
 from html.parser import HTMLParser
 import xml.etree.ElementTree as ET
 
@@ -24,6 +23,50 @@ CONTACT = {
     'fr': "Pour une demande relative au site, écrivez à DIQTO SAS à l'adresse du siège indiquée dans les mentions légales.",
     'en': 'For a request about this website, write to DIQTO SAS at the registered office address given in the legal notice.',
 }
+
+
+PURPOSE_FR = 'Diqto Voice est une application de traduction vocale pour vos réunions : vous parlez votre langue, et vous entendez votre interlocuteur dans la vôtre.'
+PURPOSE_EN = 'Diqto Voice is a voice translation application designed to let you speak your language and hear the other person in your language during meetings.'
+
+
+def robot_groups(source):
+    """Read the one-user-agent groups emitted by this site's Next metadata route."""
+    groups, current = {}, None
+    for line in source.splitlines():
+        key, sep, value = line.partition('#')[0].partition(':')
+        if not sep:
+            continue
+        key, value = key.strip().lower(), value.strip()
+        if key == 'user-agent':
+            if value in groups:
+                raise ValueError('Duplicate crawler group')
+            current = groups[value] = {'allow': [], 'disallow': []}
+        elif key in ('allow', 'disallow') and current is not None:
+            current[key].append(value)
+    return groups
+
+
+def can_crawl(groups, agent, path):
+    """Most-specific matching for the generated literal + wildcard REP subset.
+
+    Unlike urllib.robotparser's first-match rules, a narrower Disallow must win
+    over Allow: /. Specific agent groups replace the wildcard group's rules.
+    This is an offline policy check, not evidence that a live bot obeys it.
+    """
+    names = [name for name in groups if name != '*' and name.lower() in agent.lower()]
+    selected = max(names, key=len) if names else '*'
+    matches = []
+    for directive, rules in groups.get(selected, {}).items():
+        for rule in rules:
+            if not rule:
+                continue
+            terminal = rule.endswith('$')
+            pattern = rule[:-1] if terminal else rule
+            expression = re.escape(pattern).replace(r'\*', '.*')
+            if re.match(expression + (r'\Z' if terminal else ''), path):
+                specificity = len(pattern.replace('*', '').encode('utf-8'))
+                matches.append((specificity, directive == 'allow'))
+    return max(matches, default=(0, True))[1]
 
 
 def normalize(value):
@@ -89,9 +132,9 @@ class Privacy(unittest.TestCase):
             kinds = [label for label, token in zip(('street', 'postcode'), tokens) if token in text]
             if kinds:
                 hits[str(rel)] = kinds
-                if not (len(rel.parts) >= 3 and rel.parts[0] in ('fr', 'en') and rel.parts[1] == 'legal'):
+                if str(rel) not in ('fr/legal/index.html', 'en/legal/index.html'):
                     forbidden.append(str(rel))
-        self.assertEqual(forbidden, [], 'Private token outside the two legal route namespaces')
+        self.assertEqual(forbidden, [], 'Private token outside the two legal HTML files')
         for locale in ('fr', 'en'):
             self.assertEqual(hits.get(f'{locale}/legal/index.html'), ['street', 'postcode'])
         print(json.dumps({'files_scanned': len(files), 'allowed_legal_artifacts': hits, 'forbidden_files': forbidden}, ensure_ascii=False))
@@ -106,6 +149,11 @@ class Privacy(unittest.TestCase):
                 faq = next(v for v in graph if v['@type'] == 'FAQPage')
                 entity = next(v for v in faq['mainEntity'] if v['name'] == question)
                 self.assertTrue(entity['acceptedAnswer']['text'] == answer, 'FAQ answer mismatch')
+                purpose_question = 'À quoi sert Diqto Voice ?' if locale == 'fr' else 'What is Diqto Voice?'
+                purpose = PURPOSE_FR if locale == 'fr' else PURPOSE_EN
+                entity = next(v for v in faq['mainEntity'] if v['name'] == purpose_question)
+                self.assertTrue(entity['acceptedAnswer']['text'] == purpose, 'Purpose FAQ answer mismatch')
+                self.assertTrue(purpose_question + purpose in d.details, 'Visible purpose FAQ mismatch')
                 for entity in faq['mainEntity']:
                     self.assertTrue(entity['name'] + entity['acceptedAnswer']['text'] in d.details, 'Visible and structured FAQ differ')
 
@@ -159,18 +207,7 @@ class Privacy(unittest.TestCase):
 
 
     def test_10_ai_robots_exact_legal_exclusions(self):
-        groups = {}
-        current = None
-        for line in (OUT / 'robots.txt').read_text().splitlines():
-            key, sep, value = line.partition(':')
-            if not sep:
-                continue
-            key, value = key.strip().lower(), value.strip()
-            if key == 'user-agent':
-                self.assertNotIn(value, groups, 'Duplicate crawler group')
-                current = groups[value] = {'allow': [], 'disallow': []}
-            elif key in ('allow', 'disallow') and current is not None:
-                current[key].append(value)
+        groups = robot_groups((OUT / 'robots.txt').read_text())
         agents = ['GPTBot', 'OAI-SearchBot', 'ChatGPT-User', 'ClaudeBot',
                   'Claude-SearchBot', 'PerplexityBot', 'Google-Extended', 'Applebot-Extended']
         for agent in agents:
@@ -180,17 +217,51 @@ class Privacy(unittest.TestCase):
                 self.assertEqual(sorted(groups[agent]['disallow']), ['/en/legal/', '/fr/legal/'])
         for agent in ('*', 'Googlebot', 'Bingbot'):
             self.assertIn(agent, groups)
-            self.assertEqual(groups[agent], {'allow': ['/'], 'disallow': []})
+            disallow = ['/fr/legal/', '/en/legal/'] if agent == '*' else ['/fr/legal/*.txt', '/en/legal/*.txt']
+            self.assertEqual(groups[agent], {'allow': ['/'], 'disallow': disallow})
         self.assertEqual(set(groups), set(agents + ['*', 'Googlebot', 'Bingbot']))
 
     def test_11_search_robots_keep_legal_readable(self):
-        parser = RobotFileParser()
-        parser.parse((OUT / 'robots.txt').read_text().splitlines())
-        for agent in ['Googlebot', 'Bingbot', 'UnlistedBot']:
+        groups = robot_groups((OUT / 'robots.txt').read_text())
+        for agent in ['*', 'Googlebot', 'Bingbot', 'CCBot', 'GPTBot', 'ClaudeBot',
+                      'Claude-User', 'Amazonbot', 'meta-externalagent', 'UnlistedBot']:
             for locale in ('fr', 'en'):
-                with self.subTest(agent=agent, locale=locale):
-                    self.assertTrue(parser.can_fetch(agent, f'{ORIGIN}/{locale}/legal/'))
-                    self.assertTrue(parser.can_fetch(agent, f'{ORIGIN}/{locale}/privacy/'))
+                for suffix, expected in [('legal/', agent in ('Googlebot', 'Bingbot')),
+                                         ('legal/index.txt', False), ('legal/__next._full.txt', False),
+                                         ('', True), ('privacy/', True)]:
+                    path = f'/{locale}/{suffix}'
+                    with self.subTest(agent=agent, path=path):
+                        self.assertEqual(can_crawl(groups, agent, path), expected)
+
+    def test_12_no_legal_text_copies(self):
+        for locale in ('fr', 'en'):
+            copies = sorted(str(p.relative_to(OUT)) for p in (OUT / locale / 'legal').rglob('*.txt') if p.is_file())
+            self.assertEqual(copies, [], 'Next text copies remain under a legal route')
+
+    def test_13_csp_still_forbids_connections(self):
+        for route, page in [('', ''), ('fr', ''), ('en', ''), ('fr', 'legal'), ('en', 'legal')]:
+            policies = [m['content'] for m in doc(route, page).meta
+                        if m.get('http-equiv', '').lower() == 'content-security-policy']
+            self.assertEqual(len(policies), 1)
+            self.assertTrue("connect-src 'none'" in policies[0], 'CSP connection restriction lost')
+
+
+class RobotsMatcherControls(unittest.TestCase):
+    def test_narrow_disallow_wins_even_after_allow_slash(self):
+        groups = robot_groups('User-agent: *\nAllow: /\nDisallow: /fr/legal/\n')
+        self.assertFalse(can_crawl(groups, 'CCBot', '/fr/legal/'))
+        self.assertTrue(can_crawl(groups, 'CCBot', '/fr/'))
+
+    def test_specific_group_replaces_wildcard_and_blocks_text(self):
+        groups = robot_groups('User-agent: *\nDisallow: /fr/legal/\n\nUser-agent: Googlebot\nAllow: /\nDisallow: /fr/legal/*.txt\n')
+        self.assertTrue(can_crawl(groups, 'googlebot', '/fr/legal/'))
+        self.assertFalse(can_crawl(groups, 'googlebot', '/fr/legal/__next.!french.legal.__PAGE__.txt'))
+
+    def test_allow_tie_and_terminal_marker(self):
+        groups = robot_groups('User-agent: *\nDisallow: /x\nAllow: /x\nDisallow: /y$\n')
+        self.assertTrue(can_crawl(groups, 'OtherBot', '/x'))
+        self.assertFalse(can_crawl(groups, 'OtherBot', '/y'))
+        self.assertTrue(can_crawl(groups, 'OtherBot', '/yes'))
 
 
 if __name__ == '__main__':
