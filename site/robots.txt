@@ -1,0 +1,57 @@
+User-Agent: *
+Allow: /
+Disallow: /fr/legal/
+Disallow: /en/legal/
+
+User-Agent: Googlebot
+Allow: /
+Disallow: /fr/legal/*.txt
+Disallow: /en/legal/*.txt
+
+User-Agent: Bingbot
+Allow: /
+Disallow: /fr/legal/*.txt
+Disallow: /en/legal/*.txt
+
+User-Agent: GPTBot
+Allow: /
+Disallow: /fr/legal/
+Disallow: /en/legal/
+
+User-Agent: OAI-SearchBot
+Allow: /
+Disallow: /fr/legal/
+Disallow: /en/legal/
+
+User-Agent: ChatGPT-User
+Allow: /
+Disallow: /fr/legal/
+Disallow: /en/legal/
+
+User-Agent: ClaudeBot
+Allow: /
+Disallow: /fr/legal/
+Disallow: /en/legal/
+
+User-Agent: Claude-SearchBot
+Allow: /
+Disallow: /fr/legal/
+Disallow: /en/legal/
+
+User-Agent: PerplexityBot
+Allow: /
+Disallow: /fr/legal/
+Disallow: /en/legal/
+
+User-Agent: Google-Extended
+Allow: /
+Disallow: /fr/legal/
+Disallow: /en/legal/
+
+User-Agent: Applebot-Extended
+Allow: /
+Disallow: /fr/legal/
+Disallow: /en/legal/
+
+Host: https://diqtovoice.com
+Sitemap: https://diqtovoice.com/sitemap.xml

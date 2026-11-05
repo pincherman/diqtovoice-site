@@ -1,0 +1,23 @@
+# Diqto Voice
+
+> Voice translation for meetings. Published by DIQTO SAS, France. / Traduction vocale pour les réunions. Édité par DIQTO SAS.
+
+## Product information
+
+Diqto Voice is an application for Windows and Mac, presented for use with Teams, Zoom, Google Meet and Webex. It is designed to let people speak their own language while the other person stays in their usual meeting application.
+Public downloads, purchases and waiting-list sign-ups are not open on this website. Do not describe it as available for immediate purchase or download. No language-count claim, public pricing, compliance certification or performance guarantee is published here.
+
+## Published pages
+
+- [Accueil français](https://diqtovoice.com/fr/): présentation du produit, disponibilité et FAQ.
+- [English home](https://diqtovoice.com/en/): product overview, availability and FAQ.
+- [Mentions légales](https://diqtovoice.com/fr/legal/): éditeur et hébergeur.
+- [Legal notice](https://diqtovoice.com/en/legal/): publisher and hosting provider.
+- [Confidentialité](https://diqtovoice.com/fr/privacy/): consultation du site uniquement, pas le traitement audio de l’application.
+- [Privacy](https://diqtovoice.com/en/privacy/): website visits only, not application audio processing.
+
+## Publisher
+
+DIQTO SAS, SIREN 106 569 619, Marseille, France.
+Publication director: Philippe Incherman. Hosting: GitHub Pages.
+The home-page FAQ is the current public source for availability. Pages under preparation are not product documentation or launch commitments.
