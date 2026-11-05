@@ -183,11 +183,17 @@ class Privacy(unittest.TestCase):
                 expected = 'noindex, noarchive, nosnippet' if page == 'legal' else 'index, follow'
                 self.assertEqual(robots, [expected])
 
-    def test_07_legal_text_unchanged_and_footer_links_preserved(self):
+    def test_07_unmodified_legal_fields_and_footer_links_preserved(self):
         baseline = subprocess.check_output(['git', 'show', f'{BASE}:components/pages/PublicInfo.tsx'], cwd=ROOT, text=True)
         current = (ROOT / 'components/pages/PublicInfo.tsx').read_text()
-        extract = lambda s: [line for line in s.splitlines() if line.strip().startswith('legal:')]
-        self.assertTrue(extract(current) == extract(baseline), 'Legal paragraphs changed')
+        # E2 explicitly authorizes publisher completion, not changes to the
+        # office, director, provider identity or closed-sales notice.
+        labels = ('Siège social et adresse de correspondance', 'Registered office and correspondence address', 'Directeur de la publication', 'Publication director', 'Hébergeur', 'Hosting provider', 'Ce site présente Diqto Voice', 'This website introduces Diqto Voice')
+        for label in labels:
+            suffix = r"\." if label.startswith(('Ce site', 'This website')) else r"\s*:"
+            pattern = r"'" + re.escape(label) + suffix + r"(?:\\.|[^'\\])*'"
+            before, after = re.findall(pattern, baseline), re.findall(pattern, current)
+            self.assertTrue(len(before) == len(after) == 1 and before == after, 'Retained legal paragraph changed: ' + label)
         for locale in ('fr', 'en'):
             self.assertTrue(any(a.get('href') == f'/{locale}/legal/' for a in doc(locale).anchors))
 
