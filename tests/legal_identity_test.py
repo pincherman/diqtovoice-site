@@ -1,4 +1,4 @@
-"""E2 local candidate: proven company fields, explicit unresolved contacts.
+"""E2 publication candidate: proven company fields, unproved fields omitted.
 Never include the registered-office value in a fixture or a failure message.
 """
 import os
@@ -45,13 +45,12 @@ class LegalIdentity(unittest.TestCase):
         for locale, value in expected.items():
             self.assertTrue(value in paragraphs(locale), 'Verified publisher fields missing: ' + locale)
 
-    def test_unverified_fields_are_not_presented_as_verified(self):
+    def test_unverified_fields_are_absent_in_both_locales(self):
         for locale in ('fr', 'en'):
             ps = paragraphs(locale)
             labels = ('RCS', 'Téléphone', 'E-mail', 'TVA intracommunautaire', "Téléphone de l’hébergeur") if locale == 'fr' else ('RCS', 'Telephone', 'Email', 'Intra-community VAT number', 'Hosting provider telephone')
-            separator = ' :' if locale == 'fr' else ':'
             for label in labels:
-                self.assertTrue(any(p.startswith(label + separator) and '[À COMPLÉTER' in p for p in ps), 'Unverified field not explicit: ' + locale + ':' + label)
+                self.assertFalse(any(re.match(re.escape(label) + r'\s*:', p) for p in ps), 'Unproved field must be omitted: ' + locale + ':' + label)
             self.assertFalse(any('FR70106569619' in p or 'TVA non applicable' in p or 'VAT not applicable' in p for p in ps), 'Unverified VAT claim must not be emitted')
 
     def test_registered_office_paragraphs_are_byte_unchanged(self):
@@ -61,11 +60,21 @@ class LegalIdentity(unittest.TestCase):
         before, after = re.findall(pattern, old), re.findall(pattern, new)
         self.assertTrue(len(before) == len(after) == 2 and before == after, 'Registered-office source changed')
 
-    def test_pending_fields_do_not_leak_to_other_public_pages(self):
-        for locale in ('fr', 'en'):
-            for route in ('', 'privacy'):
-                body = (ROOT / 'out' / locale / route / 'index.html').read_text()
-                self.assertFalse('[À COMPLÉTER' in body, 'Pending legal fields outside legal page')
+    def test_no_pending_fields_anywhere_in_export(self):
+        files = sorted(p for p in (ROOT / 'out').rglob('*') if p.is_file())
+        self.assertTrue(files, 'Export missing')
+        forbidden = []
+        for path in files:
+            text = path.read_bytes().decode('utf-8', errors='ignore').casefold()
+            if 'à compléter' in text or 'to be completed' in text:
+                forbidden.append(str(path.relative_to(ROOT / 'out')))
+        self.assertEqual(forbidden, [], 'Pending fields must not appear in any served artifact')
+
+    def test_source_delta_only_omits_unproved_legal_paragraphs(self):
+        old = subprocess.check_output(['git', 'show', 'df4b9901953ed7b5b03c3fb7f96fe1fd70aab039:components/pages/PublicInfo.tsx'], cwd=ROOT, text=True)
+        expected, removed = re.subn(r", '[^'\n]*\[À COMPLÉTER[^'\n]*'", '', old)
+        current = (ROOT / 'components/pages/PublicInfo.tsx').read_text()
+        self.assertTrue(removed == 10 and current == expected, 'Only the ten unproved FR/EN paragraphs may change; D1 and all retained text must remain byte-identical')
 
 
 if __name__ == '__main__':
